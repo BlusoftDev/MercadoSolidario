@@ -1,0 +1,157 @@
+ {% extends  'core/base.html' %} 
+
+ {% load static %}
+
+ {% block links %}
+    <link href="{% static 'core/css/home.css' %}?" rel="stylesheet">
+{% endblock links %}}
+
+ {% block title %}Inicio{% endblock %}
+    
+
+ {% block content %}
+
+<h1 class='title has-text-link-dark has-text-centered has-text-weight-bold'>¡SÓLO REGISTRATE Y COMIENZA A VENDER!</h1>
+
+<div class='steps-container'>
+    <div class='step step-1 '>
+        <div class='step-text'>
+            <h1 class='title mt-5 ml-3' > 1.</h1>
+            <span class='step-1-desc pt-5 mt-3 is-size-6'>Registrate en la página Web.</span>  
+        </div>
+        <div class='container-img-step'>
+            <img class='img-step-1 pt-5 mt-1' src="{% static 'core/img/ic-1.png'%}" alt="">
+        </div>
+    </div>
+    <div class='step step-2 '>
+        <div class='container-img-step'>
+            <img class='img-step-1 pt-1' src="{% static 'core/img/ic-2.png'%}" alt="">
+        </div>
+         <div class='step-text has-text-white'>
+            <h1 class='title mt-5 has-text-white ml-3' > 2.</h1>
+            <span class='step-1-desc pt-5 mt-3 is-size-6'>Ingresa los datos de tu negocio.</span>  
+        </div>
+    </div>
+    <div class='step step-3 '>
+         <div class='step-text'>
+            <h1 class='title mt-5 has-text-white ml-3' > 3.</h1>
+            <span class='step-3-desc pt-5 mt-3 is-size-6 has-text-white'>Selecciona tu categoría y dános una descripción breve de tu negocio.</span>  
+        </div>
+        <div class='container-img-step'>
+            <img class='img-step-1 pt-1' src="{% static 'core/img/ic-3.png'%}" alt="">
+        </div>
+    </div>
+    <div class='step step-4 '>
+        <div class='container-img-step'>
+            <img class='img-step-1 pt-1' src="{% static 'core/img/ic-4.png'%}" alt="">
+        </div>
+         <div class='step-text has-text-white'>
+            <h1 class='title  has-text-white ml-3' > 4.</h1>
+            <span class='step-3-desc pt-2 mt-1 is-size-6'>Selecciona medios de contacto y formas de pago.</span>  
+        </div>
+    </div>
+</div>
+
+<div class='tag-container mt-5'>
+    <div class='tag-item'>
+        <img class='img-tags' src="{% static 'core/img/ic-consume.png'%}" alt="">
+        <div class='tag-text'>
+            <span class='has-text-weight-bold'>#ConsumeLocal</span>
+            <span>de forma solidaria</span>
+        </div>
+    </div>
+     <div class='tag-item mx-6 px-6'>
+        <img class='img-tags' src="{% static 'core/img/ic-registra.png'%}" alt="">
+        <div class='tag-text'>
+            <span class='has-text-weight-bold'>Registra</span>
+            <span>tus negocios favoritos</span>
+        </div>
+    </div>
+     <div class='tag-item'>
+        <img class='img-tags' src="{% static 'core/img/ic-quedate.png'%}" alt="">
+        <div class='tag-text'>
+            <span class='has-text-weight-bold'>#QuédateEnCasa</span>
+            <span>Compra Solidaria</span>
+        </div>
+    </div>
+</div>
+
+<div class='home-buttons'>
+    <button class='button is-rounded is-large register has-text-white mx-6 my-6'>
+        <div class='button-text'>
+            <span class'is-size-4'>Registra tu negocio </span>
+            <span class'is-size-4'>o servicio <span class='ml-1 has-text-weight-bold'>¡AQUÍ!</span></span>
+        </div>
+    </button>
+    <button class='button is-rounded is-large consume has-text-white mx-6 my-6'>
+        <div class='button-text'>
+            <span class'is-size-4'>Consume de Forma </span>
+            <span class'is-size-4'>Local y Solidaria <span class='ml-1 has-text-weight-bold'>¡AQUÍ!</span></span>
+        </div>
+        
+    </button>
+</div>
+
+<div class='mercado-solidario'>
+    <h1 class='title has-text-centered has-text-link-dark mt-6 pt-6 has-text-weight-semibold'>
+        ¿QUÉ ES MERCADO SOLIDARIO?
+    </h1>
+    <div class='columns'>
+        <div class='column is-3'></div>
+        <div class='column is-3'>
+            <p class='ml-6'>
+                La emergencia sanitaria ha afectado a pequeñas y medianas empresas
+                a lo largo de todo el país. Muchas de esas empresas están buscando
+                alivio financiero para sobrevivir en los próximos meses y a través de nuestra solidaridad podremos ayudarlas...
+            </p>
+            <p class='my-5 ml-6'>
+               En Mercado Solidario puedes apoyar a estos negocios a través del consumo local, a domicilio y por adelantado.
+            </p>
+            <p class='ml-6'>
+                Si eres un negocio, registrate y verás lo fácil que es poder dar estos servicios
+            </p>
+            
+        </div>
+        <div class='column'>
+            <img class='' src="{% static 'core/img/img-1.png'%}" alt="">
+        </div>
+        <div class='column is-3'></div>
+    </div>
+    <div class='columns'>
+        <div class='column is-3'></div>
+         <div class='column'>
+            <button class='button is-rounded is-large register has-text-white ml-6 my-5 to-mercado'>
+                <div class='button-text'>
+                    <span class=' has-text-weight-bold'>VER MERCADO</span>
+                </div>
+            </button>
+         </div>
+    </div>
+</div>
+
+<div class='search-bussiness'>
+    <h1 CLASS='title has-text-centered has-text-info-dark mt-6 has-text-weight-bold'>BUSCA LOS NEGOCIOS DE TU LOCALIDAD</h1>
+    <p class='container'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lorem lacus, suscipit in nunc vel, suscipit dapibus massa. Etiam pellentesque dolor nec finibus eleifend. In semper mattis eros nec pharetra. Sed turpis quam, lobortis vel massa vitae, porttitor sodales purus. Nullam rhoncus erat quam, in pulvinar metus dictum et. Duis ultricies id ex in efficitur. Maecenas sit amet vehicula risus, in viverra purus. Curabitur scelerisque consectetur diam, quis gravida sem scelerisque nec. Ut vulputate euismod dui sed faucibus. Duis eleifend suscipit mi, ut sagittis mi. Nulla blandit, mi sed rutrum ultricies, diam neque molestie elit, posuere varius tellus dui quis ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus a malesuada neque. Phasellus eu enim eget orci suscipit malesuada. Nunc consequat convallis sapien, id tincidunt orci porta molestie.</p>
+    <img class='img-sonora' src="{% static 'core/img/pattern.png'%}" alt="">
+</div>
+
+<div class='sonora-map'> 
+   <img class='img-sonora' src="{% static 'core/img/img-estado.png'%}" alt="">
+    <div class='sonora-map-text'>
+        <p CLASS='has-text-info-dark is-size-1 has-text-weight-bold has-text-centered'>
+            ¡REGISTRA A TU NEGOCIO FAVORITO Y APÓYALO!
+        </p>
+        <span CLASS='dark-blue-text  has-text-centered mt-5'>
+            80000
+        </span>
+        <span CLASS=' is-size-4 has-text-weight-light has-text-centered'>
+            Comercios y Negocios Registrados
+        </span>
+        <button class='button is-rounded is-large register has-text-white  my-5 to-register2'>
+                <div class='button-text'>
+                    <span class=' has-text-weight-bold is-size-3'>¡AQUÍ!</span>
+                </div>
+            </button>
+    </div>
+</div>
+ {% endblock %}}

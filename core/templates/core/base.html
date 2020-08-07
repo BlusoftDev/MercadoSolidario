@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}{% endblock %} | Mercado solidario</title>
+
+   {% load static %} 
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+    <link href="{% static 'core/css/base.css' %}" rel="stylesheet">
+    
+
+    {% block links %}{% endblock links %}
+
+ 
+
+  </head>
+  <body>
+   <div class ='header' > 
+    <img class='header-logo' src="{% static 'core/img/logo.png'%}" alt="">
+   </div>
+    <!-- Navegación -->
+   <div class="tabs is-centered">
+        <ul>
+            <li class='{% if request.path == "/"%} is-active {% endif %}'><a href='/'>Inicio</a></li>
+            <li class='{% if request.path == "/businesses"%} is-active {% endif %}'><a href='/businesses'> Mercado</a></li>
+            <li class='{% if request.path == "/blog"%} is-active {% endif %}'><a href='/blog'>Blog</a></li>
+            <li class='{% if request.path == "/contact"%} is-active {% endif %}'><a href='/contact'>Contacto</a></li>
+        </ul>
+    </div>
+    {% block content %} {% endblock %}
+
+    <!-- Pié de página -->
+    <footer class="footer pt-0 pb-0">    
+         <div class="uppercontent">
+            <div class="columns">
+                <div class='column is-1'></div>
+                <div class="column ">
+                    <div class=' section footerColumn1'>
+                            <img class='footer-logo' src="{% static 'core/img/logo.png'%}" alt="">
+                            <div class='container '>
+                                <div class='content is-small has-text-white'>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id ex metus. Mauris sagittis auctor viverra. Cras egestas enim ac eros fringilla tempus. Curabitur sollicitudin tristique dui quis cursus. Etiam vel gravida urna. Ut ullamcor
+                                per in mi vitae gravida. Duis viverra, tellus in luctus tincidunt, diam ligula varius turpis, vel hendrerit nulla justo vitae felis.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="column is-2">
+                    <div class='section footerColumn2'>
+                            <div class='content is-size-6 has-text-white '>
+                                    <span class='has-text-weight-semibold'>VOLVER A</span>
+                                    <ul >
+                                        <li><a href='/' class='has-text-white'>Inicio</a></li>
+                                        <li><a href='/businesses' class='has-text-white'>Mercado</a></li>
+                                        <li><a href='/contact' class='has-text-white'>Contacto</a></li>
+                                    </ul>
+                            </div>
+                    </div>
+                </div>
+            <div class="column is-2">
+                    <div class='section footerColumn3'>
+                        <div class='content is-size-6 has-text-white '>
+                            <span class='has-text-weight-semibold'>VER</span>
+                            <ul >
+                                <li><a href='/register' class='has-text-white'>Registra tu Negocio</a></li>
+                                <li><a href='/search' class='has-text-white'>Haz tu compra Local y Solidaria</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            <div class="column ">
+                <div class='section footerColumn4'>
+                    <div class=' is-size-6 has-text-white '>
+                    
+                        <div class='fotter-content-info py-3'>
+                            <span class="icon is-medium has-text-white ">
+                                <i class=" fas fa-2x fa-map-marker-alt "></i>
+                            </span>
+                            <span class='px-2'>Direccion</span>
+                            </div>
+                        
+                            <div class='fotter-content-info py-3'>
+                            <span class="icon is-medium has-text-white px-2">
+                                <i class=" fas fa-2x fa-phone"></i>
+                            </span>
+                            <span class='px-2'>Telefono</span>
+                            </div>
+                    
+                                <div class='fotter-content-info py-3'>
+                            <span class="icon is-medium has-text-white px-2">
+                                <i class=" fas fa-2x fa-envelope"></i>
+                            </span>
+                            <span class='px-2'>email</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottomcontent columns has-text-white">
+            <div class='column is-1'></div>
+            <div class='column is-4'>
+                <span>© Todos los derechos reservados 2020.</span>
+                <span class='ml-1 underlined'>Pitic Software Development</span>
+            </div>
+            <div class='column is-5'></div>
+            <div class='column is-1'> 
+                <span class="icon is-medium has-text-white px-2">
+                    <i class=" fab fa-2x fa-facebook-f"></i>
+                </span>
+                <span class="icon is-medium has-text-white px-2 ml-1">
+                    <i class=" fab fa-2x fa-instagram"></i>
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
