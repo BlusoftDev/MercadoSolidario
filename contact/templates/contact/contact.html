@@ -1,0 +1,71 @@
+{% extends  'core/base.html' %} 
+
+{% load static %}
+{% block links %}
+    <link href="{% static "contact/css/contact.css" %}" rel="stylesheet">
+{% endblock links %}}
+
+{% block title %}Contacto{% endblock %}
+
+{% block content%}
+<div class='contact-banner  container is-fluid'>
+        <span class=' banner-title is-size-2 has-text-weight-bold has-text-white has-text-centered'>
+            CONTÁCTANOS
+        </span>
+</div>
+
+<div class='section has-text-centered'>
+    MAPS
+</div>
+
+<div class='columns'>
+    <div class='column is-1'></div>
+    <div class='column ml-6 contact-container container ml-6'>
+        <p class='title is-size-4'>¿TIENES UNA DUDA?</p>
+        <p class='mt-3'>Envíanos todas tus dudas y te responderemos en breve</p>
+        {% if 'ok' in request.GET %}
+            <div class="notification is-primary ml-2 mt-3">
+                Su mensaje se ha enviado correctamente
+            </div>
+        {% endif %}
+        <form action="" method="POST">
+            {% csrf_token %} 
+            <div class='contact-form'>
+                {{form.as_table}}
+            </div>
+            <button class='button mt-5 ml-2 submit has-text-white' type='submit'>Enviar</button>
+        </form>
+    </div>
+    <div class='column ml-5'>
+        <div class='ml-6'>
+            <p class='title is-size-4'>INFORMACIÓN DE CONTACTO</p>
+            <div class='mt-6'>
+                <div class='contact-content py-3'>
+                    <span class="icon is-large  contact-icon has-text-white">
+                        <i class=" fas fa-2x fa-map-marker-alt "></i>
+                    </span>
+                    <span class='px-2' style="align-self:center;">{{EIDE.address}}</span>
+                </div>
+            
+                <div class='contact-content py-3'>
+                    <span class="icon is-large  px-2 contact-icon has-text-white">
+                        <i class=" fas fa-lg fa-phone"></i>
+                    </span>
+                    <span class='px-2' style="align-self:center;">{{EIDE.phone}}</span>
+                </div>
+        
+                <div class='contact-content py-3'>
+                    <span class="icon is-large  px-2 contact-icon has-text-white">
+                        <i class=" fas fa-lg fa-envelope"></i>
+                    </span>
+                    <span class='px-2' style="align-self:center;">{{EIDE.email}}</span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div class='column is-1'></div>
+</div>
+
+{%endblock%}

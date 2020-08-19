@@ -31,12 +31,14 @@
    <div class="tabs is-centered">
         <ul>
             <li class='{% if request.path == "/"%} is-active {% endif %}'><a href='/'>Inicio</a></li>
-            <li class='{% if request.path == "/businesses"%} is-active {% endif %}'><a href='/businesses'> Mercado</a></li>
-            <li class='{% if request.path == "/blog"%} is-active {% endif %}'><a href='/blog'>Blog</a></li>
-            <li class='{% if request.path == "/contact"%} is-active {% endif %}'><a href='/contact'>Contacto</a></li>
+            <li class='{% if request.path|slice:":8" == "/market/"%} is-active {% endif %}'><a href='/market/'> Mercado</a></li>
+            <li class='{% if request.path|slice:":6" == "/blog/"%} is-active {% endif %}'><a href='/blog/'>Blog</a></li>
+            <li class='{% if request.path == "/contact/"%} is-active {% endif %}'><a href='/contact/'>Contacto</a></li>
         </ul>
     </div>
     {% block content %} {% endblock %}
+
+    
 
     <!-- Pié de página -->
     <footer class="footer pt-0 pb-0">    
@@ -48,8 +50,7 @@
                             <img class='footer-logo' src="{% static 'core/img/logo.png'%}" alt="">
                             <div class='container '>
                                 <div class='content is-small has-text-white'>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id ex metus. Mauris sagittis auctor viverra. Cras egestas enim ac eros fringilla tempus. Curabitur sollicitudin tristique dui quis cursus. Etiam vel gravida urna. Ut ullamcor
-                                per in mi vitae gravida. Duis viverra, tellus in luctus tincidunt, diam ligula varius turpis, vel hendrerit nulla justo vitae felis.</p>
+                                    <p>{{EIDE.phrase}}</p>
                                 </div>
                             </div>
                         </div>
@@ -85,21 +86,21 @@
                             <span class="icon is-medium has-text-white ">
                                 <i class=" fas fa-2x fa-map-marker-alt "></i>
                             </span>
-                            <span class='px-2'>Direccion</span>
+                            <span class='px-2'>{{EIDE.address}}</span>
                             </div>
                         
                             <div class='fotter-content-info py-3'>
                             <span class="icon is-medium has-text-white px-2">
                                 <i class=" fas fa-2x fa-phone"></i>
                             </span>
-                            <span class='px-2'>Telefono</span>
+                            <span class='px-2'>{{EIDE.phone}}</span>
                             </div>
                     
                                 <div class='fotter-content-info py-3'>
                             <span class="icon is-medium has-text-white px-2">
                                 <i class=" fas fa-2x fa-envelope"></i>
                             </span>
-                            <span class='px-2'>email</span>
+                            <span class='px-2'>{{EIDE.email}}</span>
                             </div>
                         </div>
                     </div>

@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
 
 
 """
@@ -29,9 +30,22 @@ Contacto /contact
 """
 
 urlpatterns = [
-    # paths del core
+    # paths del corepytho
     path('', include('core.urls')),
 
     # Paths del admin
     path('admin/', admin.site.urls),
+
+    # path blog
+    path('blog/', include('blog.urls')),
+
+    # path contact
+    path('contact/', include('contact.urls')),
+    # path market
+    path('market/', include('market.urls')),
+
 ]
+
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

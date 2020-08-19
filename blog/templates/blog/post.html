@@ -1,0 +1,113 @@
+{% extends  'core/base.html' %} 
+
+{% load static %}
+{% block links %}
+    <link href="{% static "blog/css/post.css" %}?" rel="stylesheet">
+{% endblock links %}
+
+{% block title %} {{post.title}} {% endblock %}
+
+{%block content%}
+<div>
+    <div class='columns'>
+        <div class='column is-9 py-6 px-6'>
+            <figure class="image ">
+                <img src="{{post.image.url}}" alt="Placeholder image">
+            </figure>
+            <p class="title is-4 mt-5">{{post.title}}</p>
+            <span class='post-date'>
+                <span class="icon has-text-grey">
+                    <i class="fas fa-file-alt"></i>
+                </span>
+                <span class=" is-6 has-text-grey">{{post.published | date:"DATE_FORMAT"}}</span>
+                <span class="icon has-text-grey ml-3">
+                    <i class="fas fa-comment"></i>
+                </span>
+                <span class=" is-6 has-text-grey">{{post.comments}}</span>
+            </span>
+            <p class='has-text-grey-dark has-text-justified post-content content mt-5'>
+                {{post.content|safe}}
+            </p>
+            <div>
+                <div class='tags-container container mt-5'>
+                    <span class='tag-title ml-3'>TAGS:</span>
+                    {%for category in post.categories.all%} 
+                        <span class='tag-item has-text-white mx-1 px-2 is-uppercase'>
+                            {{category.name}}
+                        </span>
+                    {% endfor %}
+                </div>
+                <div class=' container pt-3 ml-3'>
+                    <span class='share social'>
+                        COMPARTIR:
+                        <span class="icon social">
+                            <i class=" fab fa-facebook-f"></i>
+                        </span>
+                        <span class="icon social">
+                            <i class=" fab fa-instagram"></i>
+                        </span>
+    
+                    </span>
+                </div>
+            </div>
+            <div class="card mt-3">
+                <div class="card-content">
+                    <div class="media">
+                    <div class="media-left">
+                        <figure class="image is-128x128">
+                        <img src="https://bulma.io/images/placeholders/256x256.png" alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-5">ESCRITO POR <span class='is-uppercase'>{{post.author}}</span></p>
+                        <p class="subtitle is-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in nunc molestie purus viverra bibendum. Aliquam fermentum tellus nec consequat venenatis. Mauris vitae hendrerit nunc, a faucibus neque. Fusce et purus erat. Nunc pellentesque augue et laoreet accumsan. Proin dictum enim sapien, ut aliquet diam lobortis nec. Suspendisse id neque eu magna aliquet fermentum. Proin faucibus iaculis urna eget dignissim. Donec ullamcorper,</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class='comments mt-6'>
+                <span class='is-size-4'>{{post.comments}} Comentarios</span>
+                <button class='button is-rounded is-large is-size-5 has-text-white' style="background-color:rgb(5, 47, 87);">
+                    COMENTAR
+                </button>
+            </div>
+        </div>
+        <div class='column is-3 py-6'> 
+            <span class='is-size-2 has-text-weight-light' style="color:rgb(5, 47, 87);">RECIENTES</span>  
+
+            {%for p in posts%}
+             <a href='{% url 'post' p.id %}'>
+                <div class="card mr-6 mb-3 mt-5">
+                    <div class="card-image mb-0 pb-0">
+                        <figure class="image ">
+                        <img src="{{p.image.url}}" alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="card-content mt-0 pt-2 pl-1">
+                        <div class=" recent-item has-text-left">
+                                <p class="has-text-weight-semibold is-6 mt-0">{{p.title}}</p>
+                                <span class='post-date'>
+                                    <span class="icon has-text-grey">
+                                        <i class="fas fa-file-alt"></i>
+                                    </span>
+                                    <span class=" is-6 has-text-grey">{{p.published | date:"DATE_FORMAT"}}</span>
+                                    <span class="icon has-text-grey ml-3">
+                                        <i class="fas fa-comment"></i>
+                                    </span>
+                                    <span class=" is-6 has-text-grey">{{p.comments}}</span>
+                                </span>
+                        </div>
+                    </div>
+                </div>                
+            </a>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}
+
+

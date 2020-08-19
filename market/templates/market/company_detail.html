@@ -1,0 +1,111 @@
+{% extends  'core/base.html' %} 
+
+{% load static %}
+
+{% block links %}
+   
+{% endblock links %}}
+
+{% block title %}Negocios{% endblock %}
+    
+{% load taggit_templatetags2_tags %}
+
+{% block content %}
+
+<div class='content'>
+    <div class='columns'>
+        <div class='column is-1'></div>
+        <div class='column'>
+            <span class='title is-uppercase'>{{company.name}}</span>
+            <p class='my-4'>
+                <span class="icon is-medium px-2" style="color: rgb(0,30,56);">
+                    <i class=" fas fa-lg fa-map-marker-alt "></i>
+                </span>
+                <span class='has-text-weight-semibold has-text-grey-dark'> {{company.street}} #{{company.ext_number}} Col.{{company.colony}} C.P. {{company.postal_code}} | {{company.city}}, Son</span>
+            </p>
+            <p class='my-4'>
+                <span class="icon is-medium px-2" style="color: rgb(0,30,56);">
+                    <i class=" fas fa-lg fa-phone"></i>
+                </span>
+                <span class='has-text-weight-semibold has-text-grey-dark'>{{company.cellphone}} </span>
+            </p>
+            {% if company.email  %}
+                <p class='my-4'>
+                    <span class="icon is-medium px-2" style="color: rgb(0,30,56);">
+                        <i class=" fas fa-lg fa-envelope"></i>
+                    </span>
+                    <span class='has-text-weight-semibold has-text-grey-dark'>{{company.email}} </span>
+                </p>
+            {% endif %}
+            
+            <div class='columns my-6 '>
+                {% for payment in company.payment_method.all %}
+                    
+                    <div class='column'>
+                        {% if payment.name == 'Efectivo' %}
+                            <div class='column is-3'>
+                                <figure class='image is-96x96 '>
+                                    <img class='' src="{% static 'market/img/ic-efec.png'%}" alt="">
+                                    <span class='has-text-weight-semibold  is-size-7 ' style="color: rgb(0,30,56);">Pago en efectivo</span>
+                                </figure>
+                            </div>
+                        {% endif %}
+                        {% if payment.name == 'Tarjeta de débito' %}
+                            <div class='column is-3'>
+                                <figure class='image is-96x96 '>
+                                    <img class='' src="{% static 'market/img/ic-elec.png'%}" alt="">
+                                    <span class='has-text-weight-semibold  is-size-7 ' style="color: rgb(0,30,56);">Pago en efectivo</span>
+                                </figure>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                {% if company.to_home == True %}
+                    <div class=" column is-6 has-text-centered">
+                        <figure class="image is-96x96 ">
+                            <img class='' src="{% static 'market/img/ic-domi.png'%}" alt="">
+                            <span class='has-text-weight-semibold  is-size-7 ' style="color: rgb(0,30,56);">Entrega a domicilio</span>
+                        </figure>
+                    </div>
+                {% endif %}
+            </div>
+            <div class='my-5 px-4 container'>
+                <div id='map' style="height: 300px;" ></div>
+            </div>
+            
+
+        </div>
+        <div class='column' >
+            <div class='columns'>
+                <div class='column'></div>
+                <div style="width: 400px;">
+                    <figure class="image is-square" >
+                        <img src="{{company.image.url}}">
+                    </figure>
+                </div>
+                <div class='column'></div>
+            </div>
+        </div>
+        <div class='column is-1'></div>
+    </div>
+</div>
+<script>
+// Initialize and add the map
+    function initMap() {
+        var myPlace = {lat: {{company.lat}}, lng: {{company.long}}};
+        // The map, centered 
+        var map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 15, center: myPlace}); 
+        var marker = new google.maps.Marker({position: myPlace, map: map});
+    }
+</script>
+<!--Load the API from the specified URL
+* The async attribute allows the browser to render the page while the API loads
+* The key parameter will contain your own API key (which is not needed for this tutorial)
+* The callback parameter executes the initMap() function
+-->
+
+<script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnnkr9OlTHBnfrN1xePBVHJryyZ1fxhs4&callback=initMap">
+</script>
+{% endblock %}

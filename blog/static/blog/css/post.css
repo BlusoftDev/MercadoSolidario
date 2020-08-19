@@ -1,0 +1,28 @@
+.title{
+    color:color: rgb(0, 34, 65);
+}
+.tags-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-content: center;
+}
+.tag-title{
+    color: rgb(5, 47, 87);
+}
+.post-content{
+    border-bottom: 2px;
+    border-color: dimgrey;
+}
+.tag-item{
+    background-color: rgb(5, 47, 87);
+}
+.social{
+    color: rgb(5, 47, 87);
+}
+.comments{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+}

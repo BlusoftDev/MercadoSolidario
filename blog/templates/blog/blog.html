@@ -1,0 +1,55 @@
+{% extends  'core/base.html' %} 
+
+{% load static %}
+{% block links %}
+    <link href="{% static "blog/css/blog.css" %}?" rel="stylesheet">
+{% endblock links %}}
+
+{% block title %}Blog{% endblock %}
+
+{% block content%}
+<div class='blog-banner  container is-fluid'>
+        <span class=' banner-title is-size-5 has-text-weight-bold ml-6 pl-6 has-text-white'>
+            BLOG
+        </span>
+</div>
+
+<div class='posts'>
+    {%for post in posts%}
+        <div class="card mx-6 my-6">
+            <div class="card-image">
+                <figure class="image ">
+                <img src="{{post.image.url}}" alt="Placeholder image">
+                </figure>
+            </div>
+            <div class="card-content">
+                
+                <p class="title is-4">{{post.title}}</p>
+                <span class='post-date'>
+                    <span class="icon has-text-grey">
+                        <i class="fas fa-file-alt"></i>
+                    </span>
+                    <span class=" is-6 has-text-grey">{{post.published | date:"DATE_FORMAT"}}</span>
+                    <span class="icon has-text-grey ml-3">
+                        <i class="fas fa-comment"></i>
+                    </span>
+                    <span class=" is-6 has-text-grey">{{post.comments}}</span>
+                </span>
+                <div class="content has-text-justified">
+                    {{post.preview}}
+                </div>
+                <span>
+                    <button  class='button has-background-link-dark '>
+                        <a href='{% url 'post' post.id %}' class='has-text-white'>
+                            LEER MÁS
+                        </a>
+                    </button>
+                </span>
+                
+            </div>
+        </div>
+
+    {% endfor %}
+</div>
+
+{%endblock%}

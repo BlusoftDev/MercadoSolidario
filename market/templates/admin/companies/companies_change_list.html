@@ -1,0 +1,20 @@
+{% extends 'admin/change_list.html' %}
+
+{% load static %} 
+
+  
+
+{% block object-tools %}
+
+    <button class='button' style="margin-bottom: 1rem;" id='download'>Descargar listado de Empresas</button>
+
+    <script>
+        const downloadBtn = document.getElementById('download')
+
+        downloadBtn.addEventListener("click", () => {
+            location.replace(window.location.origin+'/market/download/company/database/data')
+        });
+
+    </script>
+
+{% endblock  %}
