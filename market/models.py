@@ -120,8 +120,8 @@ class Company(models.Model):
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de registro')
 
     class Meta:
-        verbose_name = 'Empresa solidaria'
-        verbose_name_plural = 'Empresas solidarias'
+        verbose_name = 'Empresa sonorense'
+        verbose_name_plural = 'Empresas sonorenses'
         ordering = ['-created']
 
     def __str__(self):

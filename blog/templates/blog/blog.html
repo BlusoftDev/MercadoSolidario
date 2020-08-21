@@ -2,7 +2,7 @@
 
 {% load static %}
 {% block links %}
-    <link href="{% static "blog/css/blog.css" %}?" rel="stylesheet">
+    <link href="{% static "blog/css/blog.css" %}" rel="stylesheet">
 {% endblock links %}}
 
 {% block title %}Blog{% endblock %}
@@ -14,9 +14,9 @@
         </span>
 </div>
 
-<div class='posts'>
+<div class='posts mx-5'>
     {%for post in posts%}
-        <div class="card mx-6 my-6">
+        <div class="card my-6 mx-3">
             <div class="card-image">
                 <figure class="image ">
                 <img src="{{post.image.url}}" alt="Placeholder image">
@@ -29,11 +29,11 @@
                     <span class="icon has-text-grey">
                         <i class="fas fa-file-alt"></i>
                     </span>
-                    <span class=" is-6 has-text-grey">{{post.published | date:"DATE_FORMAT"}}</span>
+                    <span class=" is-size-6-desktop is-size-7-touch has-text-grey">{{post.published | date:"DATE_FORMAT"}}</span>
                     <span class="icon has-text-grey ml-3">
                         <i class="fas fa-comment"></i>
                     </span>
-                    <span class=" is-6 has-text-grey">{{post.comments}}</span>
+                    <span class=" is-size-6-desktop is-size-7-touch has-text-grey">{{post.comments}}</span>
                 </span>
                 <div class="content has-text-justified">
                     {{post.preview}}

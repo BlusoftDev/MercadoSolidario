@@ -15,7 +15,7 @@
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
-    <link href="{% static 'core/css/base.css' %}" rel="stylesheet">
+    <link href="{% static 'core/css/base.css' %}?" rel="stylesheet">
     
 
     {% block links %}{% endblock links %}
@@ -24,9 +24,13 @@
 
   </head>
   <body>
-   <div class ='header' > 
-    <img class='header-logo' src="{% static 'core/img/logo.png'%}" alt="">
-   </div>
+  
+    <div class ='header' > 
+        <figure class="image header-logo">
+             <img  src="{% static 'core/img/logo.png'%}" alt="">
+        </figure>
+       
+    </div>
     <!-- Navegación -->
    <div class="tabs is-centered">
         <ul>
