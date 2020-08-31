@@ -27,7 +27,7 @@
   
     <div class ='header' > 
         <figure class="image header-logo">
-             <img  src="{% static 'core/img/logo.png'%}" alt="">
+             <img  src="{% static 'core/img/logos-50.png'%}" alt="">
         </figure>
        
     </div>
@@ -45,17 +45,30 @@
     
 
     <!-- Pié de página -->
-    <footer class="footer pt-0 pb-0">    
+    <footer class="footer pt-0 pb-0">   
+        <div class="socialcontent columns has-text-white">
+            <div class='column is-1'></div>
+            <div class='column is-4'>
+                <span class='has-text-weight-bold is-size-4 ml-6'>Siguenos en nuestras redes</span>
+            </div>
+            <div class='column is-5'></div>
+            <div class='column is-1'> 
+                <span class="icon is-medium has-text-white px-2">
+                    <i class=" fab fa-2x fa-facebook-f"></i>
+                </span>
+                <span class="icon is-medium has-text-white px-2 ml-1">
+                    <i class=" fab fa-2x fa-instagram"></i>
+                </span>
+            </div>
+        </div> 
          <div class="uppercontent">
             <div class="columns">
                 <div class='column is-1'></div>
                 <div class="column ">
                     <div class=' section footerColumn1'>
-                            <img class='footer-logo' src="{% static 'core/img/logo.png'%}" alt="">
+                            <img class='footer-logo' src="{% static 'core/img/logos-49.png'%}" alt="">
                             <div class='container '>
-                                <div class='content is-small has-text-white'>
-                                    <p>{{EIDE.phrase}}</p>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -115,16 +128,20 @@
             <div class='column is-1'></div>
             <div class='column is-4'>
                 <span>© Todos los derechos reservados 2020.</span>
-                <span class='ml-1 underlined'>Pitic Software Development</span>
+                <a href='https://piticmkt.com/' target="_blank"><span class='ml-1 underlined has-text-white'>Pitic Software Development</span></a>
             </div>
             <div class='column is-5'></div>
             <div class='column is-1'> 
-                <span class="icon is-medium has-text-white px-2">
-                    <i class=" fab fa-2x fa-facebook-f"></i>
-                </span>
-                <span class="icon is-medium has-text-white px-2 ml-1">
-                    <i class=" fab fa-2x fa-instagram"></i>
-                </span>
+                <a href='https://www.facebook.com/piticmkt/'  target="_blank">
+                    <span class="icon is-medium has-text-white px-2">
+                        <i class=" fab fa-2x fa-facebook-f"></i>
+                    </span>
+                </a>
+                <a href='https://www.instagram.com/piticmkt/'  target="_blank">
+                    <span class="icon is-medium has-text-white px-2 ml-1">
+                        <i class=" fab fa-2x fa-instagram"></i>
+                    </span>
+                </a>
             </div>
         </div>
     </footer>

@@ -25,9 +25,10 @@ def company_list(request):
 class CompanyCreate(CreateView):
     model = Company
     form_class = CompanyForm
-    
+
     def get_success_url(self):
-            return reverse('register')
+            return reverse('company_list')
+    
 
 class CompanyDetailView(DetailView):
     model = Company
@@ -40,7 +41,7 @@ def companyDB(request):
     companies = Company.objects.all()
 
     writer = csv.writer(response)
-    writer.writerow(['Nombre', 'Municipio', 'Localidad', 'CP', 'Colonia', 'Numero exterior', 'Numero interior', 'Servicio a domicilio', 'Entrega en', 'url plataforma', 'Telefono fijo', 'Telefono movil', 'Email', 'Actividad',  'Actividad especifica', 'Etiquetas',  'Metodos de pago', 'Desea contarnos mas..', 'Quiere ser parte del Mercado solidario'])
+    writer.writerow(['Nombre', 'Municipio', 'CP', 'Colonia', 'Numero exterior', 'Numero interior','Inicio de operaciones', 'Servicio a domicilio', 'Entrega en', 'url plataforma', 'Telefono fijo', 'Telefono movil', 'Email', 'Actividad',  'Actividad especifica','Incrito ante el SAT', 'Etiquetas',  'Metodos de pago', 'Desea contarnos mas..', 'Quiere ser parte del Mercado solidario'])
     for company in companies:
         if company.to_home:
                 delivery ='si'
@@ -66,15 +67,20 @@ def companyDB(request):
             wantJoin ='si'
         else:
             wantJoin ='no'
+
+        if company.registerSAT:
+            onSAT ='si'
+        else:
+            onSAT ='no'
             
         writer.writerow([
             company.name, 
             company.city,
-            company.locality,
             company.postal_code,
             company.colony,
             company.ext_number,
             company.int_number,
+            company.operation_start,
             delivery,
             company.delivery_options,
             company.platform,
@@ -83,6 +89,7 @@ def companyDB(request):
             company.email,
             company.activity,
             company.subactivity,
+            onSAT,
             pTags,
             paymentOptions,
             knowMore,

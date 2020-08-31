@@ -1,6 +1,12 @@
 from django import forms
+from .models import Comment
 
-class ContactForm(forms.Form):
-    name = forms.CharField(label='' ,widget=forms.TextInput(attrs={'placeholder': 'Nombre','class':'input half-width ml-2 my-2 is-medium'}), required=True)
-    email = forms.EmailField(label='', widget=forms.TextInput(attrs={'placeholder': 'Email','class':'input half-width ml-2 my-2 is-medium', 'type':'email'}), required=True)
-    content = forms.CharField(label='', widget=forms.Textarea(attrs={'placeholder': 'Escribe tu comentario...','class':'textarea mt-3 mr-6 ml-2'}), required=True)
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['name', 'content', 'email']
+    widgets = {
+        'name': forms.TextInput(attrs={'class':'input  is-medium is-fullwidth mr-3','placeholder':'Nombre '}),
+        'email': forms.TextInput(attrs={'class':' column is-4'}),
+        'content': forms.Textarea(attrs={'class':' column is-4'}),
+    }

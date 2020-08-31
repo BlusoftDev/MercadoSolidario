@@ -3,13 +3,57 @@
  {% load static %}
 
  {% block links %}
-    <link href="{% static 'core/css/home.css' %}" rel="stylesheet">
+    <link href="{% static 'core/css/home.css' %}?" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    
 {% endblock links %}}
 
  {% block title %}Inicio{% endblock %}
     
 
  {% block content %}
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+ 
+ <div class='slider px-6 mb-6'>
+    <div class="swiper-container my-6 mx-6">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper ">
+        <!-- Slides -->
+        <div class="swiper-slide " >
+            <figure class="image is-2by1">
+                <img src="{% static 'core/img/sld-1.png'%}">
+            </figure>
+        </div>
+        <div class="swiper-slide " >
+            <figure class="image is-2by1">
+                <img src="{% static 'core/img/sld-2.png'%}">
+            </figure>
+        </div>
+        <div class="swiper-slide " >
+            <figure class="image is-2by1">
+                <img src="{% static 'core/img/sld1.png'%}">
+            </figure>
+        </div>
+        <div class="swiper-slide " >
+            <figure class="image is-2by1">
+                <img src="{% static 'core/img/sld3.png'%}">
+            </figure>
+        </div>
+       
+    </div>
+    
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+   
+</div>
+ </div>
+ 
 
 <h1 class='title has-text-link-dark has-text-centered has-text-weight-bold'>¡SÓLO REGISTRATE Y COMIENZA A VENDER!</h1>
 
@@ -54,7 +98,8 @@
     <div class='column'></div>
 </div>
 
-<div class='columns mt-5 '>
+<div class='columns mt-5 mx-6 px-6'>
+    <div class='column is-1'></div>
     <div class='column has-text-centered'>
         <img class='img-tags' src="{% static 'core/img/ic-consume.png'%}" alt="">
         <div class='tag-text'>
@@ -62,7 +107,7 @@
             <span>de forma solidaria</span>
         </div>
     </div>
-     <div class='column mx-6 px-6 has-text-centered'>
+     <div class='column has-text-centered'>
         <img class='img-tags' src="{% static 'core/img/ic-registra.png'%}" alt="">
         <div class='tag-text'>
             <span class='has-text-weight-bold'>Registra</span>
@@ -76,11 +121,13 @@
             <span>Compra Solidaria</span>
         </div>
     </div>
+    <div class='column is-1'></div>
 </div>
 
-<div class='columns'>
+<div class='columns mt-6'>
+    <div class='column is-1'></div>
     <div class='column has-text-centered'>
-         <button class='button is-rounded is-large register has-text-white mx-6 my-6 py-1' style="background-color: rgb(0, 28, 52);">
+         <button class='button is-rounded is-large register has-text-white mx-6 my-6 py-1' style="background-color: rgb(0, 28, 52); height:4.5rem;">
                 <div class='button-text '>
                     <a href='market/register'>
                         <span class='is-size-4 has-text-white py-1' >Registra tu negocio <br/> o servicio <strong>¡AQUÍ!</strong></span>
@@ -89,7 +136,7 @@
         </button>
     </div>
     <div class='column has-text-centered'>
-        <button class='button is-rounded is-large consume has-text-white mx-6 my-6 py-1' style="background-color: rgb(0, 135, 185);">
+        <button class='button is-rounded is-large consume has-text-white mx-6 my-6 py-1' style="background-color: rgb(0, 135, 185); height:4.5rem;">
             <div class='button-text'>
                 <a href='market/search'>
                     <span class='is-size-4 has-text-white py-1'>Consume de Forma <br/> Local y Solidaria <strong>¡AQUÍ!</strong></span>
@@ -97,7 +144,7 @@
             </div>
         </button>
     </div>
-    
+    <div class='column is-1'></div>
        
     
     
@@ -152,8 +199,39 @@
     </div>
     <div class='column is-1'></div>
     </div>
-   
-    
+</div>
+
+<div class='estados columns mx-6'>
+    <div class='column px-5'>
+        <figure class="image is-square">
+            <img src="{% static 'core/img/logos-43.png'%}">
+        </figure>
+    </div>
+    <div class='column px-5'>
+        <figure class="image is-square">
+            <img src="{% static 'core/img/logos-44.png'%}">
+        </figure>
+    </div>
+    <div class='column px-5'>
+        <figure class="image is-square">
+            <img src="{% static 'core/img/logos-45.png'%}">
+        </figure>
+    </div>
+    <div class='column px-5'>
+        <figure class="image is-square">
+            <img src="{% static 'core/img/logos-46.png'%}">
+        </figure>
+    </div>
+    <div class='column px-5'>
+        <figure class="image is-square">
+            <img src="{% static 'core/img/logos-47.png'%}">
+        </figure>
+    </div>
+    <div class='column px-5'>
+        <figure class="image is-square">
+            <img src="{% static 'core/img/logos-48.png'%}">
+        </figure>
+    </div>
 </div>
 
 <div class='columns'> 
@@ -200,6 +278,33 @@
             
         }
 </script>
+<script>
+
+
+    var mySwiper = new Swiper('.swiper-container', {
+  // Optional parameters
+    loop:true,
+    autoplay: {
+        delay: 3000,
+    },
+
+    // If we need pagination
+    pagination: {
+        el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+        el: '.swiper-scrollbar',
+    },
+    })
+ </script>
 <script defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnnkr9OlTHBnfrN1xePBVHJryyZ1fxhs4&callback=initMap">
     </script>

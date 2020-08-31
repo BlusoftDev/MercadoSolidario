@@ -197,6 +197,7 @@
         filteredCompanies.forEach((company) => {
             comListHTML += `
             <div class="box my-3">
+             <a href='${ currentUrl+company.id} '>
                     <article class="media">
                         <div class="media-left">
                             <figure class="image is-128x128">
@@ -256,6 +257,7 @@
                             </div>
                         </div>
                     </article>
+                    </a>
                 </div>
         `
         })

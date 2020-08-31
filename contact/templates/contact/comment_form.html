@@ -2,7 +2,7 @@
 
 {% load static %}
 {% block links %}
-    <link href="{% static "contact/css/contact.css" %}" rel="stylesheet">
+    <link href="{% static "contact/css/contact.css" %}?" rel="stylesheet">
 {% endblock links %}}
 
 {% block title %}Contacto{% endblock %}
@@ -26,9 +26,13 @@
         {% endif %}
         <form action="" method="POST">
             {% csrf_token %} 
-            <div class='contact-form'>
-                {{form.as_table}}
-            </div>
+        
+            {{form.name}}
+            <br/>
+            {{form.email}}
+            <br/>
+            {{form.content}}
+            <br/>
             <button class='button mt-5 ml-2 submit has-text-white' type='submit'>Enviar</button>
         </form>
     </div>

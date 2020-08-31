@@ -1,7 +1,7 @@
 
 
         
-
+      
         const extNumberInput = document.getElementById('extNumber');
         const streetInput = document.getElementById('street');
         const colonyInput = document.getElementById('colony');
@@ -19,11 +19,7 @@
           setMarket()
           disableSubmitBtn()
         })
-        localityInput.addEventListener('change', () =>{
-          setMarket()
-          disableSubmitBtn()
-          console.log(this.value)
-        })
+       
         cpInput.addEventListener('change', () =>{
           setMarket()
           disableSubmitBtn()
@@ -53,9 +49,9 @@
         function disableSubmitBtn(){
           console.log(phoneInput.value ==='')
           if(cityInput.value === 2 || 
-            localityInput.value === 2 ||
+            
             cpInput.value ==='' ||
-            colonyInput.value === 2 ||
+            colonyInput.value === '' ||
             phoneInput.value ===''
           ){
             submitBtn.setAttribute('disabled', 'true');
@@ -93,7 +89,7 @@
             const extNumber = document.getElementById('extNumber').value
             const street = document.getElementById('street').value
             const colony = document.getElementById('colony')
-            const colonyValue = (colony.options[colony.selectedIndex].text)
+            const colonyValue = colony.value
             const cp = document.getElementById('id_postal_code').value
             
             const address = extNumber+' '+street+' '+colonyValue+' '+cityValue

@@ -13,9 +13,9 @@
 {% block content %}
 
 <div class='content'>
-    <div class='columns'>
-        <div class='column is-1'></div>
-        <div class='column'>
+    <div class='columns mx-5'>
+        
+        <div class='column is-6'>
             <span class='title is-uppercase'>{{company.name}}</span>
             <p class='my-4'>
                 <span class="icon is-medium px-2" style="color: rgb(0,30,56);">
@@ -38,13 +38,13 @@
                 </p>
             {% endif %}
             
-            <div class='columns my-6 '>
+            <div class='columns my-6 is-mobile'>
                 {% for payment in company.payment_method.all %}
                     
-                    <div class='column'>
+                    <div class='column is-3'>
                         {% if payment.name == 'Efectivo' %}
                             <div class='column is-3'>
-                                <figure class='image is-96x96 '>
+                                <figure class='image is-128x128 '>
                                     <img class='' src="{% static 'market/img/ic-efec.png'%}" alt="">
                                     <span class='has-text-weight-semibold  is-size-7 ' style="color: rgb(0,30,56);">Pago en efectivo</span>
                                 </figure>
@@ -52,41 +52,82 @@
                         {% endif %}
                         {% if payment.name == 'Tarjeta de débito' %}
                             <div class='column is-3'>
-                                <figure class='image is-96x96 '>
+                                <figure class='image is-128x128 '>
                                     <img class='' src="{% static 'market/img/ic-elec.png'%}" alt="">
-                                    <span class='has-text-weight-semibold  is-size-7 ' style="color: rgb(0,30,56);">Pago en efectivo</span>
+                                    <span class='has-text-weight-semibold  is-size-7 ' style="color: rgb(0,30,56);">Pago con tarjeta</span>
                                 </figure>
                             </div>
                         {% endif %}
                     </div>
                 {% endfor %}
                 {% if company.to_home == True %}
-                    <div class=" column is-6 has-text-centered">
-                        <figure class="image is-96x96 ">
+                    <div class=" column is-3 has-text-centered">
+                        <figure class="image is-128x128 ">
                             <img class='' src="{% static 'market/img/ic-domi.png'%}" alt="">
                             <span class='has-text-weight-semibold  is-size-7 ' style="color: rgb(0,30,56);">Entrega a domicilio</span>
                         </figure>
                     </div>
                 {% endif %}
+                <div class=" column is-3 has-text-centered">
+                        <figure class="image is-128x128 ">
+                            <img class='' src="{% static 'market/img/ic-compra.png'%}" alt="">
+                            <span class='has-text-weight-semibold  is-size-7 ' style="color: rgb(0,30,56);">Entrega a domicilio</span>
+                        </figure>
+                    </div>
             </div>
             <div class='my-5 px-4 container'>
-                <div id='map' style="height: 300px;" ></div>
+                <div id='map' style="height: 500px;" ></div>
             </div>
             
 
         </div>
-        <div class='column' >
-            <div class='columns'>
-                <div class='column'></div>
-                <div style="width: 400px;">
-                    <figure class="image is-square" >
+        <div class='column pl-3' >
+           
+                
+                
+                    <figure class="image " >
+                        <img src="{{company.image.url}}">
+                    </figure>
+                
+                
+          
+            <div class='columns is-mobile'>
+                <div style="width: 33% ;" class='column'>
+                    <figure class="image " >
                         <img src="{{company.image.url}}">
                     </figure>
                 </div>
-                <div class='column'></div>
+                <div style="width: 33%;" class='column'>
+                    <figure class="image " >
+                        <img src="{{company.image.url}}">
+                    </figure>
+                </div>
+                <div style="width: 33%;" class='column'>
+                    <figure class="image " >
+                        <img src="{{company.image.url}}">
+                    </figure>
+                </div>
             </div>
+             <div class='columns is-mobile'>
+                <div style="width: 33%;" class='column'>
+                    <figure class="image " >
+                        <img src="{{company.image.url}}">
+                    </figure>
+                </div>
+                <div style="width: 33%;" class='column'>
+                    <figure class="image " >
+                        <img src="{{company.image.url}}">
+                    </figure>
+                </div>
+                <div style="width: 33%;" class='column'>
+                    <figure class="image " >
+                        <img src="{{company.image.url}}">
+                    </figure>
+                </div>
+            </div>
+             
         </div>
-        <div class='column is-1'></div>
+        
     </div>
 </div>
 <script>

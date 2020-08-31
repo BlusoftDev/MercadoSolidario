@@ -4,7 +4,8 @@
 
 {% block links %}
     <link href="{% static 'core/css/search.css' %}" rel="stylesheet">
-    
+
+   
 {% endblock links %}}
 
 {% block title %}Registro{% endblock %}
@@ -30,9 +31,9 @@
                 <p class='is-size-5 has-text-weight-bold has-text-right' style="color: rgb(128,128,128);">Los campos marcados con * son obligatorios</p>
                 
                 <div class='select is-medium is-fullwidth my-3' >{{form.city}}</div>
-                <div class='select is-medium is-fullwidth my-3' >{{form.locality}}</div>
+               
                 <div class='columns my-3'>
-                    {{form.postal_code}} <div class='select is-medium is-fullwidth mr-3'> {{form.colony}}</div>
+                    {{form.postal_code}} {{form.colony}}
                 </div>
                 {{form.street}}
                 <p class='has-text-grey-darker mx-2 my-3'>Si no tienes una ubicacón física, ¡Sólo registra tu colonia!</p>
@@ -71,11 +72,14 @@
                     <p class='is-size-5 ml-3 has-text-weight-semibold' style="color: rgb(51,142,185);">Si ya estas inscrito en alguna plataforma, captura la liga o URL</p>
                     {{form.platform}}
                 </div>
-                <p class='is-size-5 ml-3 my-6 has-text-weight-semibold' style="color: rgb(51,142,185);">Ingresa los datos de tu negocios. Esto ayudará a futuros clientes a contactarte</p>
+                <p class='is-size-5 ml-3 my-6 has-text-weight-semibold' style="color: rgb(51,142,185);">Ingresa los datos de tu negocio. Esto ayudará a futuros clientes a contactarte</p>
                 <p>{{form.name}}</p>
                 <p>{{form.cellphone}}</p>
                 <p>{{form.phone}}</p>
                 <p>{{form.email}}</p>
+                <p><label class="label mt-2 ml-2">Inicio de operaciones</label></p>
+                <p>{{form.operation_start}}</p>
+
                 <div style="background-color: rgb(51,142,185);">
                     <p class='is-size-3 has-text-weight-semibold has-text-white has-text-centered my-3 py-4' >DILES A TODOS QUÉ PRODUCTOS O SERVICIOS VENDES</p>
                 </div>
@@ -86,6 +90,13 @@
                     {{form.subactivity}}
                 </div>
                 {{form.tags}}
+                <p><label class="label mt-2 ml-2">Puedes ingresar un maximo de 6 imagenes de tus productos para mostrarlos</label></p>
+                {{form.product1}}
+                {{form.product2}}
+                {{form.product3}}
+                {{form.product4}}
+                {{form.product5}}
+                {{form.product6}}
                 <div style="background-color: rgb(51,142,185);">
                     <p class='is-size-3 has-text-weight-semibold has-text-white has-text-centered my-3 py-4' >FORMAS DE PAGO</p>
                 </div>
@@ -111,6 +122,12 @@
                         Deseo participar en el mercado de consumo solidario
                     </label>
                 </p>
+                 <p class=' has-text-weight-bold mt-6 is-size-5' style="color: rgb(51,142,185);">
+                    <label class='checkbox ' >
+                        {{form.registerSAT}}
+                        Registrado ante el SAT
+                    </label>
+                </p>
 
                 {{form.lat}}
                 {{form.long}}
@@ -129,9 +146,11 @@
 
 
     {% load static %}
-    <script src="{% static 'market/js/company_form.js' %}"></script>
+    
+    <script src="{% static 'market/js/company_form.js' %}?"></script>
    <script defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnnkr9OlTHBnfrN1xePBVHJryyZ1fxhs4&callback=initMap">
     </script>
+    
     
  {% endblock %}

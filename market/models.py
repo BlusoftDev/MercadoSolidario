@@ -1,5 +1,6 @@
 from django.db import models
 from taggit.managers import TaggableManager
+from django.utils import timezone
 
 
 DELIVERY = (
@@ -95,10 +96,9 @@ class Colony(models.Model):
 
 class Company(models.Model):
     name= models.CharField(max_length=100, verbose_name='Nombre', )
-    city= models.ForeignKey(City, verbose_name='Municipio' ,on_delete=models.CASCADE, default=2)
-    locality= models.ForeignKey(Locality, verbose_name='Localidad',on_delete=models.CASCADE, default=2)
+    city= models.ForeignKey(City, verbose_name='Municipio' ,on_delete=models.CASCADE, )
     postal_code= models.CharField(max_length=100, verbose_name='Código postal')
-    colony= models.ForeignKey(Colony, verbose_name='Colonia',on_delete=models.CASCADE, default=2)
+    colony=models.CharField(max_length=100, verbose_name='Colonia')
     street= models.CharField(max_length=100, verbose_name='Calle', blank=True, null=True)
     ext_number= models.CharField(max_length=100, verbose_name='Número exterior', blank=True, null=True)
     int_number= models.CharField(max_length=100, verbose_name='Número interior', blank=True, null=True)
@@ -108,8 +108,8 @@ class Company(models.Model):
     phone= models.CharField(max_length=100, verbose_name='Telefono', null=True, blank=True)
     cellphone= models.CharField(max_length=100, verbose_name='Telefono Móvil')
     email= models.CharField(max_length=100, verbose_name='Correo electrónico', null=True, blank=True)
-    activity = models.ForeignKey(Activity, verbose_name='Actividad' ,on_delete=models.CASCADE, default=2,  null=True, blank=True)
-    subactivity = models.ForeignKey(SubActivity, verbose_name='Actividad especifica' ,on_delete=models.CASCADE, default=2, null=True, blank=True)
+    activity = models.ForeignKey(Activity, verbose_name='Actividad' ,on_delete=models.CASCADE,   null=True, blank=True)
+    subactivity = models.ForeignKey(SubActivity, verbose_name='Actividad especifica' ,on_delete=models.CASCADE,  null=True, blank=True)
     tags = TaggableManager()
     payment_method = models.ManyToManyField(Payment, verbose_name='Metodo de pago')
     image = models.ImageField(verbose_name='Imagen', upload_to='market', null=True, blank=True)
@@ -118,6 +118,15 @@ class Company(models.Model):
     lat = models.FloatField(verbose_name='Latitud', default=0.0)
     long = models.FloatField(verbose_name='Longitud', default=0.0)
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de registro')
+    operation_start = models.DateTimeField( verbose_name='Inicio de operaciones')
+    registerSAT = models.BooleanField (verbose_name='Registrado en el SAT', default=False)
+    product1 = models.ImageField(verbose_name='Producto 1', upload_to='market', null=True, blank=True)
+    product2 = models.ImageField(verbose_name='Producto 2', upload_to='market', null=True, blank=True)
+    product3 = models.ImageField(verbose_name='Producto 3', upload_to='market', null=True, blank=True)
+    product4 = models.ImageField(verbose_name='Producto 4', upload_to='market', null=True, blank=True)
+    product5 = models.ImageField(verbose_name='Producto 5', upload_to='market', null=True, blank=True)
+    product6 = models.ImageField(verbose_name='Producto 6', upload_to='market', null=True, blank=True)
+
 
     class Meta:
         verbose_name = 'Empresa sonorense'

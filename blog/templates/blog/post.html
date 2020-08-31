@@ -20,10 +20,6 @@
                     <i class="fas fa-file-alt"></i>
                 </span>
                 <span class=" is-6 has-text-grey">{{post.published | date:"DATE_FORMAT"}}</span>
-                <span class="icon has-text-grey ml-3">
-                    <i class="fas fa-comment"></i>
-                </span>
-                <span class=" is-6 has-text-grey">{{post.comments}}</span>
             </span>
             <p class='has-text-grey-dark has-text-justified post-content content mt-5'>
                 {{post.content|safe}}
@@ -37,7 +33,7 @@
                         </span>
                     {% endfor %}
                 </div>
-                <div class=' container pt-3 ml-3'>
+                {% comment %} <div class=' container pt-3 ml-3'>
                     <span class='share social'>
                         COMPARTIR:
                         <span class="icon social">
@@ -48,9 +44,9 @@
                         </span>
     
                     </span>
-                </div>
+                </div> {% endcomment %}
             </div>
-            <div class="card mt-3">
+            {% comment %} <div class="card mt-3">
                 <div class="card-content">
                     <div class="media">
                     <div class="media-left">
@@ -70,7 +66,7 @@
                 <button class='button is-rounded is-large is-size-5 has-text-white' style="background-color:rgb(5, 47, 87);">
                     COMENTAR
                 </button>
-            </div>
+            </div> {% endcomment %}
         </div>
         <div class='column is-3 py-6'> 
             <span class='is-size-2 has-text-weight-light' style="color:rgb(5, 47, 87);">RECIENTES</span>  
