@@ -25,7 +25,7 @@ SECRET_KEY = '6fudtu#h=!x8a(d2$o8qky_ypxutq_a+d(o+64+jc0q9y79d7h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['161.35.26.52', 'localhost', '127.0.0.1' ]
+ALLOWED_HOSTS = ['167.172.228.139', 'localhost', '127.0.0.1' ]
 
 
 # Application definition
@@ -127,6 +127,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(BASE_DIR,'static'),
+)
 
 
 
