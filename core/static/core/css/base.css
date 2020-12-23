@@ -56,8 +56,6 @@
   text-decoration: underline white;
 }
 .socialcontent{
-  background-color: rgb(134, 169, 182);
-  width: 100%;
   display: flex;
   flex-direction: row;
 }

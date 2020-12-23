@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
-  <head>
+<head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,119 +10,121 @@
 
     <title>{% block title %}{% endblock %} | Mercado solidario</title>
 
-   {% load static %} 
+    {% load static %}
 
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
     <link href="{% static 'core/css/base.css' %}?" rel="stylesheet">
-    
+
 
     {% block links %}{% endblock links %}
 
- 
 
-  </head>
-  <body>
-  
-    <div class ='header' > 
+
+</head>
+
+<body>
+
+    <div class='header'>
         <figure class="image header-logo">
-             <img  src="{% static 'core/img/logos-50.png'%}" alt="">
+            <img src="{% static 'core/img/logos-50.png'%}" alt="">
         </figure>
-       
+
     </div>
     <!-- Navegación -->
-   <div class="tabs is-centered">
+    <div class="tabs is-centered">
         <ul>
             <li class='{% if request.path == "/"%} is-active {% endif %}'><a href='/'>Inicio</a></li>
-            <li class='{% if request.path|slice:":8" == "/market/"%} is-active {% endif %}'><a href='/market/'> Mercado</a></li>
+            <li class='{% if request.path|slice:":8" == "/market/"%} is-active {% endif %}'><a href='/market/'>
+                    Mercado</a></li>
             <li class='{% if request.path|slice:":6" == "/blog/"%} is-active {% endif %}'><a href='/blog/'>Blog</a></li>
             <li class='{% if request.path == "/contact/"%} is-active {% endif %}'><a href='/contact/'>Contacto</a></li>
         </ul>
     </div>
     {% block content %} {% endblock %}
 
-    
+
 
     <!-- Pié de página -->
-    <footer class="footer pt-0 pb-0">   
+    <footer class="footer pt-0 pb-0">
         <div class="socialcontent columns has-text-white">
             <div class='column is-1'></div>
             <div class='column is-4'>
                 <span class='has-text-weight-bold is-size-4 ml-6'>Siguenos en nuestras redes</span>
             </div>
             <div class='column is-5'></div>
-            <div class='column is-1'> 
-                <a href='https://www.facebook.com/hechoenelriosonora'  target="_blank">
+            <div class='column is-1'>
+                <a href='https://www.facebook.com/hechoenelriosonora' target="_blank">
                     <span class="icon is-medium has-text-white px-2">
                         <i class=" fab fa-2x fa-facebook-f"></i>
                     </span>
                 </a>
-                <a href='https://www.instagram.com/hechoenelriosonora/?hl=es-la'  target="_blank">
+                <a href='https://www.instagram.com/hechoenelriosonora/?hl=es-la' target="_blank">
                     <span class="icon is-medium has-text-white px-2 ml-1">
                         <i class=" fab fa-2x fa-instagram"></i>
                     </span>
                 </a>
-              
+
             </div>
-        </div> 
-         <div class="uppercontent">
+        </div>
+        <div class="uppercontent">
             <div class="columns">
                 <div class='column is-1'></div>
                 <div class="column ">
                     <div class=' section footerColumn1'>
-                            <img class='footer-logo' src="{% static 'core/img/logos-49.png'%}" alt="">
-                            <div class='container '>
-                               
-                            </div>
+                        <img class='footer-logo' src="{% static 'core/img/logos-49.png'%}" alt="">
+                        <div class='container '>
+
                         </div>
                     </div>
+                </div>
                 <div class="column is-2">
                     <div class='section footerColumn2'>
-                            <div class='content is-size-6 has-text-white '>
-                                    <span class='has-text-weight-semibold'>VOLVER A</span>
-                                    <ul >
-                                        <li><a href='/' class='has-text-white'>Inicio</a></li>
-                                        <li><a href='/market/company_list' class='has-text-white'>Mercado</a></li>
-                                        <li><a href='/contact' class='has-text-white'>Contacto</a></li>
-                                    </ul>
-                            </div>
+                        <div class='content is-size-6 has-text-white '>
+                            <span class='has-text-weight-semibold'>VOLVER A</span>
+                            <ul>
+                                <li><a href='/' class='has-text-white'>Inicio</a></li>
+                                <li><a href='/market/company_list' class='has-text-white'>Mercado</a></li>
+                                <li><a href='/contact' class='has-text-white'>Contacto</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            <div class="column is-2">
+                <div class="column is-2">
                     <div class='section footerColumn3'>
                         <div class='content is-size-6 has-text-white '>
                             <span class='has-text-weight-semibold'>VER</span>
-                            <ul >
+                            <ul>
                                 <li><a href='/market/register/' class='has-text-white'>Registra tu Negocio</a></li>
                                 <li><a href='/market/' class='has-text-white'>Haz tu compra Local y Solidaria</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            <div class="column ">
-                <div class='section footerColumn4'>
-                    <div class=' is-size-6 has-text-white '>
-                    
-                        <div class='fotter-content-info py-3'>
-                            <span class="icon is-medium has-text-white ">
-                                <i class=" fas fa-2x fa-map-marker-alt "></i>
-                            </span>
-                            <span class='px-2'>{{EIDE.address}}</span>
-                            </div>
-                        
+                <div class="column ">
+                    <div class='section footerColumn4'>
+                        <div class=' is-size-6 has-text-white '>
+
                             <div class='fotter-content-info py-3'>
-                            <span class="icon is-medium has-text-white px-2">
-                                <i class=" fas fa-2x fa-phone"></i>
-                            </span>
-                            <span class='px-2'>{{EIDE.phone}}</span>
+                                <span class="icon is-medium has-text-white ">
+                                    <i class=" fas fa-2x fa-map-marker-alt "></i>
+                                </span>
+                                <span class='px-2'>{{EIDE.address}}</span>
                             </div>
-                    
-                                <div class='fotter-content-info py-3'>
-                            <span class="icon is-medium has-text-white px-2">
-                                <i class=" fas fa-2x fa-envelope"></i>
-                            </span>
-                            <span class='px-2'>{{EIDE.email}}</span>
+
+                            <div class='fotter-content-info py-3'>
+                                <span class="icon is-medium has-text-white px-2">
+                                    <i class=" fas fa-2x fa-phone"></i>
+                                </span>
+                                <span class='px-2'>{{EIDE.phone}}</span>
+                            </div>
+
+                            <div class='fotter-content-info py-3'>
+                                <span class="icon is-medium has-text-white px-2">
+                                    <i class=" fas fa-2x fa-envelope"></i>
+                                </span>
+                                <span class='px-2'>{{EIDE.email}}</span>
                             </div>
                         </div>
                     </div>
@@ -133,16 +135,17 @@
             <div class='column is-1'></div>
             <div class='column is-4'>
                 <span>© Todos los derechos reservados 2020.</span>
-                <a href='https://piticmkt.com/' target="_blank"><span class='ml-1 underlined has-text-white'>Pitic Software Development</span></a>
+                <a href='https://piticmkt.com/' target="_blank"><span class='ml-1 underlined has-text-white'>Pitic
+                        Software Development</span></a>
             </div>
             <div class='column is-5'></div>
-            <div class='column is-1'> 
-                <a href='https://www.facebook.com/piticmkt/'  target="_blank">
+            <div class='column is-1'>
+                <a href='https://www.facebook.com/piticmkt/' target="_blank">
                     <span class="icon is-medium has-text-white px-2">
                         <i class=" fab fa-2x fa-facebook-f"></i>
                     </span>
                 </a>
-                <a href='https://www.instagram.com/piticmkt/'  target="_blank">
+                <a href='https://www.instagram.com/piticmkt/' target="_blank">
                     <span class="icon is-medium has-text-white px-2 ml-1">
                         <i class=" fab fa-2x fa-instagram"></i>
                     </span>
