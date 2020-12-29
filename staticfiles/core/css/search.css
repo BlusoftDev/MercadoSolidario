@@ -1,0 +1,50 @@
+.register-banner {
+  background-color: rgb(0, 34, 65);
+}
+
+.tag-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.image-tag {
+  height: 110px;
+}
+
+.tag-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.tag-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.search-bussiness {
+  height: 500px;
+  background-color: aqua;
+}
+.categories{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.categorie-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.categorie-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 10%;
+}
+.categorie-image{
+  height: 110px;
+  align-self: center;
+}
+.has-text-centered{
+  justify-content: center;
+}
