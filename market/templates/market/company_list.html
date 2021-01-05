@@ -1,13 +1,13 @@
-{% extends  'core/base.html' %} 
+{% extends  'core/base.html' %}
 
 {% load static %}
 
 {% block links %}
-   
+
 {% endblock links %}}
 
 {% block title %}Negocios{% endblock %}
-    
+
 {% load taggit_templatetags2_tags %}
 
 {% block content %}
@@ -26,12 +26,13 @@
         <div class='column is-5' id='map' style="height: 300px"></div>
         <div class='column is-5'>
             <div class='mx-4'>
-                <span class='has-text-weight-semibold ml-2' style="color: rgb(0,30,56);">SELECCIONA UN PRODUCTO O SERVICIO</span>
+                <span class='has-text-weight-semibold ml-2' style="color: rgb(0,30,56);">SELECCIONA UN PRODUCTO O
+                    SERVICIO</span>
                 <div class="select is-fullwidth mt-2">
                     <select id='productInput'>
                         <option>Selecciona ...</option>
                         {% for tag in tags %}
-                            <option>{{tag.name}}</option>
+                        <option>{{tag.name}}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -42,9 +43,9 @@
                     <select id='cityInput'>
                         <option>Selecciona ...</option>
                         {% for city in cities %}
-                            {% if city.id != 2 %}
-                                <option>{{city.name}}</option>
-                            {% endif %}
+                        {% if city.id != 2 %}
+                        <option>{{city.name}}</option>
+                        {% endif %}
                         {% endfor %}
                     </select>
                 </div>
@@ -54,55 +55,104 @@
     </div>
     <div class='columns mt-6'>
         <div class='column is-1'></div>
-            <div id='company_list' class='column is-10'>
-            
+        <div id='company_list' class='column is-10'>
+
         </div>
         <div class='column is-1'></div>
     </div>
-    
+
 </div>
 
 
 
 <script>
-
     const currentUrl = 'company/';
 
     const companiesDiv = document.getElementById('company_list');
     const productInput = document.getElementById('productInput');
     const cityInput = document.getElementById('cityInput');
 
-    const companiesArr = [];
-    {% for company in companies %}
-        const {{company.name}} = {
-            name: '{{company.name}}',
-            phone: '{{company.cellphone}}',
-            address: '{{company.street}} #{{company.ext_number}} Col.{{company.colony}} C.P. {{company.postal_code}} | {{company.city}}, Son',
-            payments:[ {% for payment in company.payment_method.all %}
-                '{{payment.name}}',
-            {% endfor %}],
-            delivery: {% if company.to_home == True %} true {% else %} false {% endif %},
-            tags: [{% for tag in company.tags.all %} '{{tag.name}}',{% endfor %}],
-            imageUrl: '{{company.image.url}}',
-            city: '{{company.city}}',
-            lat: {{company.lat}},
-            lng: {{company.long}},
-            id: {{company.id}}
+    const companiesArr = []; {
+        %
+        for company in companies %
+    }
+    const {
+        {
+            company.name
         }
-        companiesArr.push({{company.name}})
-    {% endfor %}
+    } = {
+        name: '{{company.name}}',
+        phone: '{{company.cellphone}}',
+        address: '{{company.street}} #{{company.ext_number}} Col.{{company.colony}} C.P. {{company.postal_code}} | {{company.city}}, Son',
+        payments: [{
+                %
+                for payment in company.payment_method.all %
+            }
+            '{{payment.name}}',
+            {
+                %
+                endfor %
+            }
+        ],
+        delivery: {
+            %
+            if company.to_home == True %
+        }
+        true {
+            %
+            else %
+        }
+        false {
+            %
+            endif %
+        },
+        tags: [{
+                %
+                for tag in company.tags.all %
+            }
+            '{{tag.name}}', {
+                %
+                endfor %
+            }
+        ],
+        imageUrl: '{{company.image.url}}',
+        city: '{{company.city}}',
+        lat: {
+            {
+                company.lat
+            }
+        },
+        lng: {
+            {
+                company.long
+            }
+        },
+        id: {
+            {
+                company.id
+            }
+        }
+    }
+    companiesArr.push({
+        {
+            company.name
+        }
+    }) {
+        %
+        endfor %
+    }
 
     console.log(companiesArr)
 
-    companiesDiv.innerHTML =' ';
+    companiesDiv.innerHTML = ' ';
 
-    var comListHTML =' ';
+    var comListHTML = ' ';
 
     var markersPoints = []
 
     companiesArr.forEach((company) => {
         markersPoints.push({
-            lat:company.lat,
+            lat: company.lat,
             lng: company.lng,
             title: company.name
         })
@@ -146,7 +196,7 @@
                                         `<div class='column is-3'>
                                             <figure class="image is-96x96 ">
                                                 <img class='' src="{% static 'market/img/ic-elec.png'%}" alt="">
-                                                <span class='has-text-weight-semibold  is-size-7 ' style="color: rgb(0,30,56);">Pago con tarjeta</span>
+                                                <span class='has-text-weight-semibold  is-size-7 ' style="color: rgb(0,30,56);">Pago con débito/crédito</span>
                                             </figure>
                                         </div>`
                                         : ``
@@ -172,27 +222,28 @@
 
 
     companiesDiv.innerHTML = comListHTML;
-    
 
-    productInput.addEventListener('change', () =>{
+
+    productInput.addEventListener('change', () => {
         filterCompanies()
     })
-    cityInput.addEventListener('change', () =>{
+    cityInput.addEventListener('change', () => {
         filterCompanies()
     })
 
-    function filterCompanies(){
+    function filterCompanies() {
         const productValue = (productInput.options[productInput.selectedIndex].text)
         const cityValue = (cityInput.options[cityInput.selectedIndex].text)
 
-        
+
 
         let filteredCompanies = companiesArr.filter(company => {
-            console.log(company.name,company.tags.includes(productValue))
-            if((company.tags.includes(productValue) || productValue=='Selecciona ...') && (company.city === cityValue || cityValue === 'Selecciona ...')) return company;
+            console.log(company.name, company.tags.includes(productValue))
+            if ((company.tags.includes(productValue) || productValue == 'Selecciona ...') && (company.city ===
+                    cityValue || cityValue === 'Selecciona ...')) return company;
         })
 
-        comListHTML=''
+        comListHTML = ''
 
         filteredCompanies.forEach((company) => {
             comListHTML += `
@@ -235,7 +286,7 @@
                                             `<div class='column is-3'>
                                                 <figure class="image is-96x96 ">
                                                     <img class='' src="{% static 'market/img/ic-elec.png'%}" alt="">
-                                                    <span class='has-text-weight-semibold  is-size-7 ' style="color: rgb(0,30,56);">Pago con tarjeta</span>
+                                                    <span class='has-text-weight-semibold  is-size-7 ' style="color: rgb(0,30,56);">Pago con débito/crédito</span>
                                                 </figure>
                                             </div>`
                                             : ``
@@ -268,7 +319,7 @@
 
         filteredCompanies.forEach(company => {
             filteredMarkers.push({
-                lat:company.lat,
+                lat: company.lat,
                 lng: company.lng,
                 title: company.name
             })
@@ -276,38 +327,56 @@
 
         initMap(filteredMarkers)
 
-        
+
     }
 
     function initMap(myPlaces) {
-        var hermosillo = {lat: 29.0892, lng: -110.961};
+        var hermosillo = {
+            lat: 29.0892,
+            lng: -110.961
+        };
         // The map, centered 
         var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 6, center: hermosillo});  
-        if(myPlaces){
+            document.getElementById('map'), {
+                zoom: 6,
+                center: hermosillo
+            });
+        if (myPlaces) {
             const markers = []
-            myPlaces.forEach(place =>{
-                const {lat,lng,title} = place
+            myPlaces.forEach(place => {
+                const {
+                    lat,
+                    lng,
+                    title
+                } = place
                 markers.push(new google.maps.Marker({
-                    position: {lat,lng},
+                    position: {
+                        lat,
+                        lng
+                    },
                     map: map,
                     title
                 }))
             })
-        }else{
-            markersPoints.forEach(place =>{
+        } else {
+            markersPoints.forEach(place => {
                 const markers = []
-                const {lat,lng,title} = place
+                const {
+                    lat,
+                    lng,
+                    title
+                } = place
                 markers.push(new google.maps.Marker({
-                    position: {lat,lng},
+                    position: {
+                        lat,
+                        lng
+                    },
                     map: map,
                     title
                 }))
             })
-        }      
+        }
     }
-
-    
 </script>
 
 
