@@ -5,170 +5,154 @@
 {% block links %}
     <link href="{% static 'core/css/search.css' %}" rel="stylesheet">
     
-{% endblock links %}}
+{% endblock links %}
 
 {% block title %}Busqueda{% endblock %}
     
-
 {% block content %}
-<a href='{% url 'register'%}'>
-    <div class='container pt-0 mt-0 has-text-centered has-text-white' style="background-color: rgb(0, 34, 65);">
-        <span class='is-size-3 has-text-weight-light'>
-            Registrate es muy fácil 
-            <span class='has-text-weight-bold is-italic has-text-white'>¡AQUÍ!</span>
-        </span>
-    </div>
-</a>
 
-<div class='columns mt-5 mx-6 px-5'>
-    
-    <div class='column has-text-centered mx-6 '>
-        <figure class="image is-square">
-            <img src="{% static 'core/img/ic-consume.png'%}">
-        </figure>
-        <div class='tag-text'>
-            <span class='has-text-weight-bold'>#ConsumeLocal</span>
-            <span>de forma solidaria</span>
-        </div>
-    </div>
-    <div class='column has-text-centered mx-6 px-5'>
-        <figure class="image is-square">
-            <img src="{% static 'core/img/ic-5.png'%}">
-        </figure>
-        <div class='tag-text'>
-            <span class='has-text-weight-bold'>Busca</span>
-            <span>lo que necesites</span>
-        </div>
-    </div>
-    <div class='column has-text-centered mx-6 px-5'>
-        <figure class="image is-square">
-            <img src="{% static 'core/img/ic-registra.png'%}">
-        </figure>
-        <div class='tag-text'>
-            <span class='has-text-weight-bold'>Registra</span>
-            <span>tus negocios favoritos</span>
-        </div>
-    </div>
-    <div class='column has-text-centered mx-6 px-5'>
-        <figure class="image is-square">
-            <img src="{% static 'core/img/ic-quedate.png'%}">
-        </figure>
-        <div class='tag-text'>
-            <span class='has-text-weight-bold'>#QuédateEnCasa</span>
-            <span>Compra Solidaria</span>
-        </div>
-    </div>
-    
-</div>
+<a href="{% url 'register'%}"><button class='btn-largo'>Registrate es muy fácil <strong><i>¡AQUÍ!</i></strong></button></a>
 
-<div class='columns mt-6'>
-    <div class='column is-2'></div>
-    <div class='column is-8'>
-        <div id='map' style="height:500px;"></div>
-        <a href='{% url "company_list"%}'><button class=' button is-large is-fullwidth mt-4 has-text-white' style="background-color: rgb(0,30,56);">QUIERO BUSCAR UN NEGOCIO</button>
-        </a>
-    </div>
-    </div>
-    <div class='column is-2'></div>
-</div>
-    
-
-
-<div class='categories my-6 px-6 '>
-    <div class='columns '>
-        <div class='column mx-6 has-text-centered px-6 mx-6'>
-            <figure class="image is-square">
-                <img  src="{% static 'core/img/ic-agri.png'%}" alt="">
-            </figure>
-            <div class='has-text-centered has-text-weight-semibold has-text-link-dark'>
-                <span>AGRICULTURA, GANADERÍA Y PESCA</span>
+<div class="container-fluid">
+    <!-- Iconos -->
+    <div class="row">
+        <div class="col-lg-3 col-sm-12 d-flex justify-content-center">
+            <div>
+                <img class="img-tags" src="{% static 'core/img/ic-consume.png'%}" alt="">
+                <div class='tag-text text-center'>
+                    <strong>#ConsumeLocal</strong>
+                    <p>de forma solidaria</p>
+                </div>
             </div>
         </div>
-
-        <div class='column mx-6 has-text-centered px-6 mx-6'>
-            <figure class="image is-square">
-                <img  src="{% static 'core/img/ic-cons.png'%}" alt="">
-            </figure>
-            <div class='has-text-centered has-text-weight-semibold has-text-link-dark'>
-                <span>CONSTRUCCIÓN</span>
+        <div class="col-lg-3 col-sm-12 d-flex justify-content-center">
+            <div>
+                <img class="img-tags" src="{% static 'core/img/ic-5.png'%}">
+                <div class='tag-text text-center'>
+                    <strong>Busca</strong>
+                    <p>lo que necesites</p>
+                </div>
             </div>
         </div>
-
-        <div class='column mx-6 has-text-centered px-6 mx-6'>
-            <figure class="image is-square">
-                <img src="{% static 'core/img/ic-manu.png'%}" alt="">
-            </figure>
-            <div class='has-text-centered has-text-weight-semibold has-text-link-dark'>
-                <span>MANUFACTURA</span>
+        <div class="col-lg-3 col-sm-12 d-flex justify-content-center">
+            <div>
+                <img class='img-tags' src="{% static 'core/img/ic-registra.png'%}" alt="">
+                <div class='tag-text text-center'>
+                    <strong>Registra</strong>
+                    <p>tus negocios favoritos</p>
+                </div>
             </div>
         </div>
+        <div class="col-lg-3 col-sm-12 d-flex justify-content-center">
+            <div>
+                <img class='img-tags' src="{% static 'core/img/ic-quedate.png'%}" alt="">
+                <div class='tag-text text-center'>
+                    <strong>#QuédateEnCasa</strong>
+                    <p>Compra Solidaria</p>
+                </div>
 
-        <div class='column mx-6 has-text-centered px-6 mx-6'>
-            <figure class="image is-square">
-                <img  src="{% static 'core/img/ic-come.png'%}" alt="">
-            </figure>
-            <div class='has-text-centered has-text-weight-semibold has-text-link-dark'>
-                <span>COMERCIO</span>
-            </div>
-        </div>
-
-        <div class='column mx-6 has-text-centered px-6 mx-6'>
-            <figure class="image is-square">
-                <img  src="{% static 'core/img/ic-revi.png'%}" alt="">
-            </figure>
-            <div class='has-text-centered has-text-weight-semibold has-text-link-dark'>
-                <span>REVISTAS Y MEDIOS</span>
-            </div>
-        </div>
-    </div>
-
-    <div class='columns'>
-        <div class='column mx-6 has-text-centered px-6 mx-6'>
-            <figure class="image is-square">
-                <img  src="{% static 'core/img/ic-serv.png'%}" alt="">
-            </figure>
-            <div class='has-text-centered has-text-weight-semibold has-text-link-dark'>
-                <span>SERVICIOS</span>
-            </div>
-        </div>
-
-        <div class='column mx-6 has-text-centered px-6 mx-6'>
-            <figure class="image is-square">
-                <img  src="{% static 'core/img/ic-limp.png'%}" alt="">
-            </figure>
-            <div class='has-text-centered has-text-weight-semibold has-text-link-dark'>
-                <span>LIMPIEZA Y APOYO A LOS NEGOCIOS</span>
-            </div>
-        </div>
-
-        <div class='column mx-6 has-text-centered px-6 mx-6'>
-            <figure class="image is-square">
-                <img  src="{% static 'core/img/ic-educ.png'%}" alt="">
-            </figure>
-            <div class='has-text-centered has-text-weight-semibold has-text-link-dark'>
-                <span>EDUCACIÓN</span>
-            </div>
-        </div>
-
-        <div class='column mx-6 has-text-centered px-6 mx-6'>
-            <figure class="image is-square">
-                <img  src="{% static 'core/img/ic-hote.png'%}" alt="">
-            </figure>
-            <div class='has-text-centered has-text-weight-semibold has-text-link-dark'>
-                <span>HOTELES, ALIMENTOS Y BEBIDAS</span>
-            </div>
-        </div>
-
-        <div class='column mx-6 has-text-centered px-6 mx-6'>
-            <figure class="image is-square">
-                <img  src="{% static 'core/img/ic-salu.png'%}" alt="">
-            </figure>
-            <div class='has-text-centered has-text-weight-semibold has-text-link-dark'>
-                <span>SALUD Y ASISTENCIA SOCIAL</span>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Mapa -->
+<div class="container-fluid">
+    <div id='map' style="height:500px;"></div>
+</div>
+
+<a href='/market/company_list'><button class='btn-largo'>QUIERO BUSCAR UN NEGOCIO</button></a>
+    
+<!-- Iconos -->
+<div class="container-fluid seccion-iconos">
+    <div class="row justify-content-center">
+        <div class="col-lg-2 col-md-4 col-sm-12 d-flex justify-content-center">
+            <div>
+                <div class="d-flex justify-content-center">
+                    <img class="icono" src="{% static 'core/img/ic-agri.png'%}" alt="">
+                </div>
+                <p class="text-center">AGRICULTURA, GANADERÍA Y PESCA</p>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-12 d-flex justify-content-center">
+            <div>
+                <div class="d-flex justify-content-center">
+                    <img class="icono" src="{% static 'core/img/ic-cons.png'%}" alt="">
+                </div>
+                <p class="text-center">CONSTRUCCIÓN</p>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-12 d-flex justify-content-center">
+            <div>
+                <div class="d-flex justify-content-center">
+                    <img class="icono" src="{% static 'core/img/ic-manu.png'%}" alt="">
+                </div>
+                <p class="text-center">MANUFACTURA</p>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-12 d-flex justify-content-center">
+            <div>
+                <div class="d-flex justify-content-center">
+                    <img class="icono" src="{% static 'core/img/ic-come.png'%}" alt="">
+                </div>
+                <p class="text-center">COMERCIO</p>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-12 d-flex justify-content-center">
+            <div>
+                <div class="d-flex justify-content-center">
+                    <img class="icono" src="{% static 'core/img/ic-revi.png'%}" alt="">
+                </div>
+                <p class="text-center">REVISTAS Y MEDIOS</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-2 col-md-4 col-sm-12 d-flex justify-content-center">
+            <div>
+                <div class="d-flex justify-content-center">
+                    <img class="icono" src="{% static 'core/img/ic-serv.png'%}" alt="">
+                </div>
+                <p class="text-center">SERVICIOS</p>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-12 d-flex justify-content-center">
+            <div>
+                <div class="d-flex justify-content-center">
+                    <img class="icono" src="{% static 'core/img/ic-limp.png'%}" alt="">
+                </div>
+                <p class="text-center">LIMPIEZA Y APOYO A LOS NEGOCIOS</p>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-12 d-flex justify-content-center">
+            <div>
+                <div class="d-flex justify-content-center">
+                    <img class="icono" src="{% static 'core/img/ic-educ.png'%}" alt="">
+                </div>
+                <p class="text-center">EDUCACIÓN</p>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-12 d-flex justify-content-center">
+            <div>
+                <div class="d-flex justify-content-center">
+                    <img class="icono" src="{% static 'core/img/ic-hote.png'%}" alt="">
+                </div>
+                <p class="text-center">HOTELES, ALIMENTOS Y BEBIDAS</p>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-12 d-flex justify-content-center">
+            <div>
+                <div class="d-flex justify-content-center">
+                    <img class="icono" src="{% static 'core/img/ic-salu.png'%}" alt="">
+                </div>
+                <p class="text-center">SALUD Y ASISTENCIA SOCIAL</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 <script>
 
     function initMap() {
@@ -180,9 +164,6 @@
             {% for company in companies %}
             var {{company.name}} = new google.maps.Marker({position: {lat:{{company.lat}} , lng:{{company.long}} }, map: map, })
             {% endfor %}
-            
-            
-            
         }
 </script>
 <script defer
