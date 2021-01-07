@@ -3,7 +3,8 @@
 {% load static %}
 
 {% block links %}
-    <link href="{% static 'core/css/search.css' %}" rel="stylesheet">
+    <!-- <link href="{% static 'core/css/search.css' %}" rel="stylesheet"> -->
+    <link href="{% static 'market/css/company_form.css' %}?" rel="stylesheet">
 
    
 {% endblock links %}
@@ -12,145 +13,167 @@
     
 
 {% block content %}
-    
-    <div class=' has-text-centered my-6'>
-        <p class='is-size-1 has-text-weight-bold' style="color: rgb(0,30,56);">¡BIENVENIDO/A!</p>
-        <p class='is-size-3 has-text-weight-semibold' style="color: rgb(51,142,185);">Si tienes un local, vendes productos u ofreces servicios</p>
-        <p class='is-size-5 has-text-weight-semibold' style="color: rgb(128,128,128);">Te regalamos un espacio virtual para que todo Sonora de conozca</p>
+
+<div class="container-fluid">
+    <p class="bienvenido-text">¡BIENVENIDO/A!</p>
+    <p class="subtitulo">Si tienes un local donde vendes productos u ofreces servicios</p>
+    <p class="texto-gris">Te regalamos un espacio virtual para que todo México te conozca</p>
+
+    <br>
+    <div class="bloque-texto">
+        <p>REGISTRARSE ES MUY SIMPLE</p>
     </div>
-    
-    <div class='columns'>
-        <div class='column is-2'></div>
-        <div class='column '>
-            <form action="" method="POST" enctype="multipart/form-data">
-                {% csrf_token %} 
-    
-                <div style="background-color: rgb(51,142,185);">
-                    <p class='is-size-3 has-text-weight-semibold has-text-white has-text-centered my-2 py-4' >REGISTRARSE ES MUY SIMPLE</p>
-                </div>
-                <p class='is-size-5 has-text-weight-bold has-text-right' style="color: rgb(128,128,128);">Los campos marcados con * son obligatorios</p>
-                
-                <div class='select is-medium is-fullwidth my-3' >{{form.city}}</div>
-               
-                <div class='columns my-3'>
-                    {{form.postal_code}} {{form.colony}}
-                </div>
-                {{form.street}}
-                <p class='has-text-grey-darker mx-2 my-3'>Si no tienes una ubicacón física, ¡Sólo registra tu colonia!</p>
-                <div class='columns ml-0 mr-4 my-3'>
-                    {{form.ext_number}}{{form.int_number}}
-                </div>
-                <div style="background-color: rgb(51,142,185);">
-                    <p class='is-size-3 has-text-weight-semibold has-text-white has-text-centered my-3 py-4' >CONFIRMA TU UBICACIÓN EN EL MAPA</p>
-                </div>
-                <div class='columns my-3'>
-                    <div class='column is-7 ml-3 ' id='map' style="height:500px;"></div>
-                    <div class='column mx-5'>
-                        <p class='has-text-centered has-text-weight-bold mt-6 is-size-5'>
-                            <label class='checkbox ' >
-                            {{form.to_home}}
-                            Puedo entregar mi producto o servicio a domicilio
-                        </label>
-                        </p>
-                        <p class='has-text-centered has-text-weight-bold mt-6 is-size-5 '>
-                            <label class=' ' >
-                            Selecciona la zona en la que te gustaría entregar tu producto o servicio
-                            <br/>
-                            <div class='columns mt-3'>
-                                <div class=column is-4></div>
-                                <div class='select is-medium column'>
-                                {{form.delivery_options}}
-                                </div>
-                                <div class=column is-4></div>
-                            </div>
-                            
-                        </label>
-                        </p>
-                    </div>
-                </div>
-                <div class='mt-6'>
-                    <p class='is-size-5 ml-3 has-text-weight-semibold' style="color: rgb(51,142,185);">Si ya estas inscrito en alguna plataforma, captura la liga o URL</p>
-                    {{form.platform}}
-                </div>
-                <p class='is-size-5 ml-3 my-6 has-text-weight-semibold' style="color: rgb(51,142,185);">Ingresa los datos de tu negocio. Esto ayudará a futuros clientes a contactarte</p>
-                <p>{{form.name}}</p>
-                <p>{{form.cellphone}}</p>
-                <p>{{form.phone}}</p>
-                <p>{{form.email}}</p>
-                <p><label class="label mt-2 ml-2">Inicio de operaciones</label></p>
-                <p>{{form.operation_start}}</p>
-
-                <div style="background-color: rgb(51,142,185);">
-                    <p class='is-size-3 has-text-weight-semibold has-text-white has-text-centered my-3 py-4' >DILES A TODOS QUÉ PRODUCTOS O SERVICIOS VENDES</p>
-                </div>
-                <div class='select is-medium is-fullwidth my-3'>
-                    {{form.activity}}
-                </div>
-                <div class='select is-medium is-fullwidth my-3'>
-                    {{form.subactivity}}
-                </div>
-                {{form.tags}}
-                <p><label class="label mt-2 ml-2">Puedes ingresar un maximo de 6 imagenes de tus productos para mostrarlos</label></p>
-                {{form.product1}}
-                {{form.product2}}
-                {{form.product3}}
-                {{form.product4}}
-                {{form.product5}}
-                {{form.product6}}
-                <div style="background-color: rgb(51,142,185);">
-                    <p class='is-size-3 has-text-weight-semibold has-text-white has-text-centered my-3 py-4' >FORMAS DE PAGO</p>
-                </div>
-                <p class='is-size-5 ml-3 my-4 has-text-weight-semibold' style="color: rgb(51,142,185);">Si agregas la información de tus métodos de pago, será más fácil comprarte por adelantado</p>
-                <div class=''>
-                        {{form.payment_method}}
-                </div>
-
-                <p class='is-size-5 ml-3 my-4 has-text-weight-semibold' style="color: rgb(51,142,185);">Sube la foto que más te guste de tu negocio</p>
-                {{form.image}}
-                
-
-                <p class=' has-text-weight-bold mt-6 is-size-5' style="color: rgb(51,142,185);">
-                    <label class='checkbox ' >
-                        {{form.let_me_know_more}}
-                        Deseo contar un poco más de mi local, negocio o servicio
-                    </label>
-                </p>
-
-                <p class=' has-text-weight-bold mt-6 is-size-5' style="color: rgb(51,142,185);">
-                    <label class='checkbox ' >
-                        {{form.join}}
-                        Deseo participar en el mercado de consumo solidario
-                    </label>
-                </p>
-                 <p class=' has-text-weight-bold mt-6 is-size-5' style="color: rgb(51,142,185);">
-                    <label class='checkbox ' >
-                        {{form.registerSAT}}
-                        Registrado ante el SAT
-                    </label>
-                </p>
-
-                {{form.lat}}
-                {{form.long}}
-                <div class='has-text-centered'>
-                    <button type='submit' class='button is-large is-rounded my-6 has-text-white' style="background-color: rgb(0,30,56);" id='submitBtn'>Registra tu negocio</button>
-                </div>
-            </form>
-            
+    <p class="texto-gris text-end">Los campos marcados con * son obligatorios</p>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %} 
+        {{form.city}}
+        <br>
+        <div class="row">
+            <div class="col-lg-6 col-sm-12">
+                {{form.postal_code}}
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                {{form.colony}}
+            </div>
         </div>
-        <div class='column is-2'></div>
-    </div>
-
-
-
-   
-
-
-    {% load static %}
+        <br>
+        {{form.street}}
+        <p>Si no tienes una ubicacón física, ¡Sólo registra tu colonia!</p>
+        <br>
+        <div class="row">
+            <div class="col-lg-6 col-sm-12">
+                {{form.ext_number}}
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                {{form.int_number}}
+            </div>
+        </div>
+        <br>
+        <div class="bloque-texto">
+            <p>CONFIRMA TU UBICACIÓN EN EL MAPA</p>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-6 col-sm-12">
+                <div id='map' style="height:500px;"></div>
+            </div>
+            <div class="col-lg-6 col-sm-12 d-flex align-items-center justify-content-center">
+                <div class="mx-5 my-5">
+                    <div class="d-flex justify-content-center">
+                        {{form.to_home}}
+                        <h5 class="ml-2"><strong>Puedo entregar mi producto o servicio a domicilio</strong></h5>
+                    </div>
+                    <br>            
+                    <br>            
+                    <br>            
+                    <h5 class="text-center"><strong>Selecciona la zona en la que te gustaría entregar tu producto o servicio</strong></h5>
+                    {{form.delivery_options}}
+                </div>
+            </div>
+        </div>
+        <br>
+        <p class="texto-azul">Si ya estas inscrito en alguna plataforma, captura la liga o URL</p>
+        {{form.platform}}
     
-    <script src="{% static 'market/js/company_form.js' %}?"></script>
-   <script defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnnkr9OlTHBnfrN1xePBVHJryyZ1fxhs4&callback=initMap">
-    </script>
+        <br>
+        <p class="texto-azul">Ingresa los datos de tu negocio. Esto ayudará a futuros clientes a contactarte</p>
+        {{form.name}}
+        <br>
+        {{form.cellphone}}
+        <br>
+        {{form.phone}}
+        <br>
+        {{form.email}}
     
+        <br>
+        <p class="texto-azul">Ingresa los datos de tu negocio. Esto ayudará a futuros clientes a contactarte</p>
+        {{form.name}}
+        <br>
+        {{form.cellphone}}
+        <br>
+        {{form.phone}}
+        <br>
+        {{form.email}}
+        <br>
+        <p class="texto-azul">Inicio de operaciones</p>
+        {{form.operation_start}}
+        <br>
+        <div class="bloque-texto">
+            <p>DILES A TODOS QUE PRODUCTOS O SERVICIOS VENDES</p>
+        </div>
+        <br>
+        {{form.activity}}
+        <br>
+        {{form.subactivity}}
+        <br>
+        {{form.tags}}
+        <br>
+        <p class="texto-azul">Puedes ingresar un máximo de 6 imágenes de tus productos para mostrarlos</p>
+        <br>
+        <div class="row">
+            <div class="col-lg-4 col-sm-12">
+                {{form.product1}}
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                {{form.product2}}
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                {{form.product3}}
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                {{form.product4}}
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                {{form.product5}}
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                {{form.product6}}
+            </div>
+        </div>
+        <br>
+        <div class="bloque-texto">
+            <p>FORMAS DE PAGO</p>
+        </div>
+        <br>
+        <p class="texto-azul">Si agregas la información de tus métodos de pago, será más fácil comprarte por adelantado</p>
+        {{form.payment_method}}
+        <br>
+        <p class="texto-azul">Sube la foto que más te guste de tu negocio</p>
+        {{form.image}}
+        <br>
+        <br>
+        <div class="d-flex align-items-center">
+            {{form.let_me_know_more}}
+            <p class="texto-azul ml-3 mb-0">Deseo conocer acerca de convocatorias o apoyos gubernamentales</p>
+        </div>
+        <br>
+        <div class="d-flex align-items-center">
+            {{form.join}}
+            <p class="texto-azul ml-3 mb-0">Deseo participar en el mercado de consumo solidario</p>
+        </div>
+        <br>
+        <div class="d-flex align-items-center">
+            {{form.registerSAT}}
+            <p class="texto-azul ml-3 mb-0">Registrado ante el SAT</p>
+        </div>
+        {{form.lat}}
+        {{form.long}}
+        <div class="d-flex justify-content-center">
+            <button type='submit' class='button btn-azul-fuerte' id='submitBtn'><p>Registra tu negocio</p></button>
+        </div>
+    </form>
+
+
+</div>
+
+
+
+{% load static %}
+
+<script src="{% static 'market/js/company_form.js' %}?"></script>
+<script defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnnkr9OlTHBnfrN1xePBVHJryyZ1fxhs4&callback=initMap">
+</script>
+
     
  {% endblock %}

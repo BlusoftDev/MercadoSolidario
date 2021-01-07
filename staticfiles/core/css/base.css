@@ -60,6 +60,10 @@ h1{
   background-color:  rgb(0, 34, 65);
 }
 
+.btn-azul-fuerte:disabled{
+  background-color: rgb(0, 34, 65);
+}
+
 .btn-azul-fuerte:hover{
   background-color:  rgba(0, 34, 65, 0.7);
 }

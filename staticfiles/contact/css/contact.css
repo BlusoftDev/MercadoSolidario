@@ -36,3 +36,8 @@
     margin: 0;
 
 }
+
+.bienvenido-text{
+    color: rgb(0, 34, 65);
+    font-size: 1.2em;    
+}
