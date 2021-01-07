@@ -23,7 +23,7 @@ class Bussiness(models.Model):
 class Comment (models.Model):
     email = models.CharField(max_length=100, verbose_name='Correo electrónico')
     name = models.CharField(max_length=100, verbose_name='Nombre')
-    content = RichTextField( verbose_name='Contenido')
+    content = models.CharField(max_length=2000, verbose_name='Contenido')
     sended = models.DateTimeField(verbose_name='Fecha de envio', default=now)
 
     class Meta:

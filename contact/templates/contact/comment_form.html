@@ -2,70 +2,79 @@
 
 {% load static %}
 {% block links %}
-    <link href="{% static "contact/css/contact.css" %}?" rel="stylesheet">
-{% endblock links %}}
+    <link href="{% static 'contact/css/contact.css' %}?" rel="stylesheet">
+{% endblock links %}
 
 {% block title %}Contacto{% endblock %}
 
 {% block content%}
-<div class='contact-banner  container is-fluid'>
-        <span class=' banner-title is-size-2 has-text-weight-bold has-text-white has-text-centered'>
-            CONTÁCTANOS
-        </span>
+<div class="contact-banner">
+    <p class="text-center">CONTÁCTANOS</p>
 </div>
 
-<div class='columns mx-6 my-6'>
-    <div class='column is-1'></div>
-    <div class='column ml-6 contact-container container ml-6'>
-        <p class='title is-size-4'>¿TIENES UNA DUDA?</p>
-        <p class='mt-3'>Envíanos todas tus dudas y te responderemos en breve</p>
-        {% if 'ok' in request.GET %}
+<div class="container-fluid">
+    <div class="row encuesta-contacto">
+        <div class="col-lg-6 col-sm-12">
+            <h4>¿TIENES UNA DUDA?</h4>
+            <hr>
+            <p>Envíanos todas tus dudas y te responderemos en breve</p>
+            {% if 'ok' in request.GET %}
             <div class="notification is-primary ml-2 mt-3">
                 Su mensaje se ha enviado correctamente
             </div>
-        {% endif %}
-        <form action="" method="POST">
-            {% csrf_token %} 
-        
-            {{form.name}}
-            <br/>
-            {{form.email}}
-            <br/>
-            {{form.content}}
-            <br/>
-            <button class='button mt-5 ml-2 submit has-text-white' type='submit'>Enviar</button>
-        </form>
-    </div>
-    <div class='column ml-5'>
-        <div class='ml-6'>
-            <p class='title is-size-4'>INFORMACIÓN DE CONTACTO</p>
-            <div class='mt-6'>
-                <div class='contact-content py-3'>
-                    <span class="icon is-large  contact-icon has-text-white">
-                        <i class=" fas fa-2x fa-map-marker-alt "></i>
-                    </span>
-                    <span class='px-2' style="align-self:center;">{{EIDE.address}}</span>
-                </div>
+            {% endif %}
+            <form action="" method="POST">
+                {% csrf_token %} 
             
-                <div class='contact-content py-3'>
-                    <span class="icon is-large  px-2 contact-icon has-text-white">
-                        <i class=" fas fa-lg fa-phone"></i>
-                    </span>
-                    <span class='px-2' style="align-self:center;">{{EIDE.phone}}</span>
+                {{form.name}}
+                <br/>
+                {{form.email}}
+                <br/>
+                {{form.content}}
+                <button class='button btn-azul-fuerte' type='submit'><p>ENVIAR</p></button>
+            </form>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+            <h4>INFORMACIÓN DE CONTACTO</h4>
+            <hr>
+            <br>
+            <div class="contact-info">
+                <div class="row">
+                    <div class="col-sm-2 d-flex justify-content-center">
+                        <div class="contact-icon d-flex align-items-center justify-content-center">
+                            <i class="fas fa-2x fa-map-marker-alt "></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-10 d-flex align-items-center">
+                        <p>{{EIDE.address}}</p>
+                    </div>
                 </div>
-        
-                <div class='contact-content py-3'>
-                    <span class="icon is-large  px-2 contact-icon has-text-white">
-                        <i class=" fas fa-lg fa-envelope"></i>
-                    </span>
-                    <span class='px-2' style="align-self:center;">{{EIDE.email}}</span>
+                <br>
+                <div class="row">
+                    <div class="col-sm-2 d-flex justify-content-center">
+                        <div class="contact-icon d-flex align-items-center justify-content-center">
+                            <i class="fas fa-lg fa-phone"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-10 d-flex align-items-center">
+                        <p>{{EIDE.phone}}</p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-2 d-flex justify-content-center">
+                        <div class="contact-icon d-flex align-items-center justify-content-center">
+                            <i class="fas fa-lg fa-envelope"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-10 d-flex align-items-center">
+                        <p>{{EIDE.email}}</p>
+                    </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
-</div>
-<div class='column is-1'></div>
 </div>
 
 {%endblock%}

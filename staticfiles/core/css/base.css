@@ -3,7 +3,6 @@ body{
   font-size: 100%;
   margin: 0;
   padding: 0;
-  text-align: justify;
 }
 
 a{
@@ -61,8 +60,16 @@ h1{
   background-color:  rgb(0, 34, 65);
 }
 
+.btn-azul-fuerte:hover{
+  background-color:  rgba(0, 34, 65, 0.7);
+}
+
 .btn-azul-claro{
   background-color: rgb(0, 135, 185);
+}
+
+.btn-azul-claro:hover{
+  background-color: rgba(0, 136, 185, 0.7);
 }
 
 .btn-accion{
@@ -76,6 +83,10 @@ h1{
   font-size: 1.6em;
   padding: 2px 0;
   width: 100%;
+}
+
+.btn-largo:hover{
+  background-color: rgba(0, 30, 56, 0.7);
 }
 
 .emphasis-txt{
@@ -96,6 +107,8 @@ h1{
   font-weight: lighter;
   font-size: 1.7em;
 }
+
+
 
 .header {
   display: flex;
