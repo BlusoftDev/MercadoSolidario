@@ -41,7 +41,7 @@
                 <select id='cityInput' class="form-control">
                     <option>Selecciona ...</option>
                     {% for city in cities %}
-                    {% if city.id != 2 %}
+                    {% if city.id != 0 %}
                     <option>{{city.name}}</option>
                     {% endif %}
                     {% endfor %}
