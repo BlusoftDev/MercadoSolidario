@@ -173,3 +173,21 @@ h1{
   color: white;
   margin: 0 15px;
 }
+
+
+/* Center */
+.container-pr{
+
+  height: 100px;
+  position: relative; 
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+/* Center */
