@@ -103,63 +103,51 @@
         <div class="box my-3">
             <a href='${ currentUrl+company.id} '>
                 <article class="media">
-                    <div class="media-left">
-                        <figure class="image is-128x128">
-                            <img src="${company.imageUrl}" alt="Image">
-                        </figure>
-                    </div>
-                    <div class="media-content">
-                        <div class='content columns'>
-                            <div class=" column is-5">
-                                <p >
-                                    <strong style="color: rgb(0,30,56);">${company.name}</strong> 
-                                </p>
-                                <p style="color: rgb(51,142,185);">
-                                    ${company.address}
-                                </p>
-                                <p style="color: rgb(0,30,56);">
-                                    ${company.phone}
-                                </p>
-                                <p style="color: rgb(0,30,56);">
-                                    ${company.tags.join(', ')}
-                                </p>
-                            </div>
-                            <div class=" column is-7 ">
-                                <div class='columns '>
-                                    ${company.payments.includes('Efectivo') ? 
-                                        `<div class='column is-3'>
-                                            <figure class='image is-96x96 '>
-                                                <img class='' src="{% static 'market/img/ic-efec.png'%}" alt="">
-                                                <span class='has-text-weight-semibold  is-size-7 ' style="color: rgb(0,30,56);">Pago en efectivo</span>
-                                            </figure>
-                                        </div>`
-                                        : ``
-                                    }
-                                    ${company.payments.includes('Tarjeta de débito') ? 
-                                        `<div class='column is-3'>
-                                            <figure class="image is-96x96 ">
-                                                <img class='' src="{% static 'market/img/ic-elec.png'%}" alt="">
-                                                <span class='has-text-weight-semibold  is-size-7 ' style="color: rgb(0,30,56);">Pago con débito/crédito</span>
-                                            </figure>
-                                        </div>`
-                                        : ``
-                                    }
-                                    ${company.delivery ? 
-                                        `<div class=" column is-6 has-text-centered">
-                                            <figure class="image is-96x96 ">
-                                                <img class='' src="{% static 'market/img/ic-domi.png'%}" alt="">
-                                                <span class='has-text-weight-semibold  is-size-7 ' style="color: rgb(0,30,56);">Entrega a domicilio</span>
-                                            </figure>
-                                        </div>`
-                                        : ``
-                                    } 
-                                </div>
+                    <div class="row">
+                        <div class="col-lg-2 col-sm-12">
+                            <img src="${company.imageUrl}" alt="Image">                        
+                        </div>
+                        <div class="col-lg-5 col-sm-12">
+                            <p class="empresa">${company.name}</p>
+                            <p class="direccion">${company.address}</p>
+                            <p class="texto">${company.phone}</p>
+                            <p class="texto">${company.tags.join(', ')}</p>
+                        </div>
+                        <div class="col-lg-5 col-sm-12">
+                            <div class="row d-flex justify-content-center">
+                                ${company.payments.includes('Efectivo') ? 
+                                    `<div class="col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center">
+                                        <div>
+                                            <img class='icono d-flex justify-content-center align-items-center' src="{% static 'market/img/ic-efec.png'%}" alt="">
+                                            <p class="texto text-center">Pago en efectivo</p>
+                                        </div>
+                                    </div>`
+                                    : ``
+                                }
+                                ${company.payments.includes('Tarjeta de débito') ? 
+                                    `<div class="col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center">
+                                        <div>
+                                            <img class='icono' src="{% static 'market/img/ic-elec.png'%}" alt="">
+                                            <p class="texto text-center">Pago con débito/crédito</p>
+                                        </div>
+                                    </div>`
+                                    : ``
+                                }
+                                ${company.delivery ? 
+                                    `<div class="col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center">
+                                        <div>
+                                            <img class='icono' src="{% static 'market/img/ic-domi.png'%}" alt="">
+                                            <p class="texto text-center">Entrega a domicilio</p>
+                                        </div>
+                                    </div>`
+                                    : ``
+                                } 
                             </div>
                         </div>
                     </div>
                 </article>
             </a>
-            </div>
+        </div>
     `
     })
 

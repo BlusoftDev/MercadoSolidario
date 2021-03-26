@@ -10,3 +10,26 @@
     text-align: center;
     margin: 0;
 }
+
+.empresa{
+    color: rgb(0, 34, 65);
+    font-size: 1.7em;
+    font-weight: bold;
+}
+
+.direccion{
+    color: black;
+    font-size: 1em;
+
+}
+
+.texto{
+    color: black;
+
+}
+
+.icono{
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+}
