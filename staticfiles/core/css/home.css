@@ -62,10 +62,25 @@
 
 /* Iconos */
 
-/* Botones */
+/* Iconos de estados */
+.ic-estado{
+  height: 200px;
+  position: relative;
+}
 
-/* Botones */
+.ic-estado img{
+  height: 150px;
+  width: auto;
+}
+/* Iconos de estados */
 
+
+/* Mapa sonora */
+.mapa-container{
+  height: 785px;
+  position: relative; 
+}
+/* Mapa sonora */
 
 .home-buttons {
   display: flex;
