@@ -1,5 +1,5 @@
 function initMap(myPlace) {
-            var ures = {lat: 29.42701845315065, lng: -110.39371353858397};
+            var ures = {lat: 29.427, lng: -110.393};
             // The map, centered 
             var map = new google.maps.Map(
             document.getElementById('map'), {zoom: 6, center: ures});
