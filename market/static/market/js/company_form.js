@@ -62,10 +62,10 @@
         
 
         function initMap(myPlace) {
-            var hermosillo = {lat: 29.0892, lng: -110.961};
+            var ures = {lat: 29.42701845315065, lng: -110.39371353858397};
             // The map, centered 
             var map = new google.maps.Map(
-            document.getElementById('map'), {zoom: 6, center: hermosillo});
+            document.getElementById('map'), {zoom: 6, center: ures});
             if(myPlace){
                 var marker = new google.maps.Marker({position: myPlace, map: map, draggable: true,})
                 google.maps.event.addListener(marker, 'dragend', function (evt) {
