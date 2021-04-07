@@ -12,7 +12,7 @@
 
 {% block content %}
 <script defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9YTgCN-8vKj4OKnRzEWihyNiaXnBDGsk&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnnkr9OlTHBnfrN1xePBVHJryyZ1fxhs4&callback=initMap">
 </script>
 
 <div class="mercado-banner">
@@ -47,12 +47,14 @@
                     {% endfor %}
                 </select>
             </div>
-
+            27.02170579075983, -108.93962871119051
 
         </div>
     </div>
 
     <div id='company_list'>
+        
+            
 
     </div>
 
@@ -76,7 +78,7 @@
             {% endfor %}],
             delivery: {% if company.to_home == True %} true {% else %} false {% endif %},
             tags: [{% for tag in company.tags.all %} '{{tag.name}}',{% endfor %}],
-            imageUrl: '{{company.imageUrl}}',
+            imageUrl: '{{company.image.url}}',
             city: '{{company.city}}',
             lat: {{company.lat}},
             lng: {{company.long}},
@@ -114,31 +116,31 @@
                             <p class="texto">${company.tags.join(', ')}</p>
                         </div>
                         <div class="col-lg-5 col-sm-12">
-                            <div class="row d-flex justify-content-center">
+                            <div class="row">
                                 ${company.payments.includes('Efectivo') ? 
-                                    `<div class="col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center">
-                                        <div>
-                                            <img class='icono d-flex justify-content-center align-items-center' src="{% static 'market/img/ic-efec.png'%}" alt="">
-                                            <p class="texto text-center">Pago en efectivo</p>
+                                    `<div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="container-pr">
+                                            <img class='icono center' src="{% static 'market/img/ic-efec.png'%}" alt="">
                                         </div>
+                                        <p class="texto text-center">Pago en efectivo</p>
                                     </div>`
                                     : ``
                                 }
                                 ${company.payments.includes('Tarjeta de débito') ? 
-                                    `<div class="col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center">
-                                        <div>
-                                            <img class='icono' src="{% static 'market/img/ic-elec.png'%}" alt="">
-                                            <p class="texto text-center">Pago con débito/crédito</p>
+                                    `<div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="container-pr">
+                                            <img class='icono center' src="{% static 'market/img/ic-elec.png'%}" alt="">
                                         </div>
+                                        <p class="texto text-center">Pago con débito/crédito</p>
                                     </div>`
                                     : ``
                                 }
                                 ${company.delivery ? 
-                                    `<div class="col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center">
-                                        <div>
-                                            <img class='icono' src="{% static 'market/img/ic-domi.png'%}" alt="">
-                                            <p class="texto text-center">Entrega a domicilio</p>
+                                    `<div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="container-pr">
+                                            <img class='icono center' src="{% static 'market/img/ic-domi.png'%}" alt="">
                                         </div>
+                                        <p class="texto text-center">Entrega a domicilio</p>
                                     </div>`
                                     : ``
                                 } 
@@ -230,9 +232,6 @@
                                             </div>`
                                             : ``
                                         }
-                                        
-                                        
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -261,10 +260,10 @@
     }
 
     function initMap(myPlaces) {
-        var ures = {lat: 29.427, lng: -110.393};
+        var hermosillo = {lat: 29.0892, lng: -110.961};
         // The map, centered 
         var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 6, center: ures});  
+        document.getElementById('map'), {zoom: 6, center: hermosillo});  
         if(myPlaces){
             const markers = []
             myPlaces.forEach(place =>{

@@ -155,10 +155,10 @@
 <script>
 
     function initMap() {
-            var ures = {lat: 29.427, lng: -110.393};
+            var hermosillo = {lat: 29.0892, lng: -110.961};
             // The map, centered 
             var map = new google.maps.Map(
-            document.getElementById('map'), {zoom: 7, center: ures});
+            document.getElementById('map'), {zoom: 7, center: hermosillo});
             
             {% for company in companies %}
             var {{company.name}} = new google.maps.Marker({position: {lat:{{company.lat}} , lng:{{company.long}} }, map: map, })
@@ -166,7 +166,7 @@
         }
 </script>
 <script defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9YTgCN-8vKj4OKnRzEWihyNiaXnBDGsk&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnnkr9OlTHBnfrN1xePBVHJryyZ1fxhs4&callback=initMap">
     </script>
 
  {% endblock %}
