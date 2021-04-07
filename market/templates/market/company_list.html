@@ -67,7 +67,7 @@
 
     const companiesArr = [];
     {% for company in companies %}
-        const {{company.name}} = {
+        const {{company.id}} = {
             name: '{{company.name}}',
             phone: '{{company.cellphone}}',
             address: '{{company.street}} #{{company.ext_number}} Col.{{company.colony}} C.P. {{company.postal_code}} | {{company.city}}, Son',
@@ -82,7 +82,7 @@
             lng: {{company.long}},
             id: {{company.id}}
         }
-        companiesArr.push({{company.name}})
+        companiesArr.push({{company.id}})
     {% endfor %}
 
     console.log(companiesArr)
