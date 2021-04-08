@@ -260,10 +260,10 @@
     }
 
     function initMap(myPlaces) {
-        var hermosillo = {lat: 29.0892, lng: -110.961};
+        
         // The map, centered 
         var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 8, center: hermosillo});  
+        document.getElementById('map'), {zoom: 8, center: map});  
         if(myPlaces){
             const markers = []
             myPlaces.forEach(place =>{
