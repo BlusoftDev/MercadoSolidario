@@ -47,7 +47,7 @@
                     {% endfor %}
                 </select>
             </div>
-            27.02170579075983, -108.93962871119051
+            
 
         </div>
     </div>
@@ -78,7 +78,7 @@
             {% endfor %}],
             delivery: {% if company.to_home == True %} true {% else %} false {% endif %},
             tags: [{% for tag in company.tags.all %} '{{tag.name}}',{% endfor %}],
-            imageUrl: '{{company.imageUrl}}',
+            imageUrl: '{{company.image.url}}',
             city: '{{company.city}}',
             lat: {{company.lat}},
             lng: {{company.long}},
@@ -107,7 +107,7 @@
                 <article class="media">
                     <div class="row">
                         <div class="col-lg-2 col-sm-12">
-                            <img src="${company.imageUrl}" alt="Image">                        
+                            <img src="${company.image.url}" alt="Image">                        
                         </div>
                         <div class="col-lg-5 col-sm-12">
                             <p class="empresa">${company.name}</p>
@@ -184,7 +184,7 @@
                     <article class="media">
                         <div class="media-left">
                             <figure class="image is-128x128">
-                                <img src="${company.imageUrl}" alt="Image">
+                                <img src="${company.image.url}" alt="Image">
                             </figure>
                         </div>
                         <div class="media-content">
