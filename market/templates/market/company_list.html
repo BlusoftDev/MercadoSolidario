@@ -69,7 +69,8 @@
 
     const companiesArr = [];
     {% for company in companies %}
-        const {{company.name}} = {
+        const {{company.id}} = {
+            id: {{company.id}},
             name: '{{company.name}}',
             phone: '{{company.cellphone}}',
             address: '{{company.street}} #{{company.ext_number}} Col.{{company.colony}} C.P. {{company.postal_code}} | {{company.city}}, Son',
@@ -82,7 +83,6 @@
             city: '{{company.city}}',
             lat: {{company.lat}},
             lng: {{company.long}},
-            id: {{company.id}}
         }
         companiesArr.push({{company.name}})
     {% endfor %}
@@ -99,7 +99,7 @@
         markersPoints.push({
             lat:company.lat,
             lng: company.lng,
-            title: company.id
+            title: company.name
         })
         comListHTML += `
         <div class="box my-3">
