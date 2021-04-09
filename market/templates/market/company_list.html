@@ -223,6 +223,15 @@
                                             </div>`
                                             : ``
                                         }
+                                        ${company.payments.includes('Transferencia Electrónica') ? 
+                                            `<div class='column is-3'>
+                                                <figure class="image is-96x96 ">
+                                                    <img class='' src="{% static 'market/img/ic-trans.png'%}" alt="">
+                                                    <span class='has-text-weight-semibold  is-size-7 ' style="color: rgb(0,30,56);">Pago con Transferencia</span>
+                                                </figure>
+                                            </div>`
+                                            : ``
+                                        }
                                         ${company.delivery ? 
                                             `<div class=" column is-6 has-text-centered">
                                                 <figure class="image is-96x96 ">
