@@ -99,7 +99,7 @@
         markersPoints.push({
             lat:company.lat,
             lng: company.lng,
-            title: company.name
+            title: company.id
         })
         comListHTML += `
         <div class="box my-3">
@@ -134,6 +134,15 @@
                                         <p class="texto text-center">Pago con débito/crédito</p>
                                     </div>`
                                     : ``
+                                }
+                                ${company.payments.includes('Transferencia Electrónica') ? 
+                                            `<div class='column is-3'>
+                                                <figure class="image is-96x96 ">
+                                                    <img class='' src="{% static 'market/img/ic-trans.png'%}" alt="">
+                                                    <span class='has-text-weight-semibold  is-size-7 ' style="color: rgb(0,30,56);">Pago con Transferencia</span>
+                                                </figure>
+                                            </div>`
+                                            : ``
                                 }
                                 ${company.delivery ? 
                                     `<div class="col-lg-4 col-md-4 col-sm-12">
