@@ -33,7 +33,7 @@
 
     <div class='header big'>
         <figure class="image header-logo">
-            <img src="{% static 'core/img/logos-50.png'%}" alt="">
+            <img src="{% static 'core/img/logos-50a.png'%}" alt="">
         </figure>
 
     </div>
@@ -49,7 +49,7 @@
                 <a class='nav-item nav-link text-center {% if request.path == "/"%} active {% endif %}'
                     href='/'>Inicio</a>
                 <a class='nav-item nav-link text-center {% if request.path|slice:":8" == "/market/"%} active {% endif %}'
-                    href='/market/'>
+                    href='/market/company_list/'>
                     Mercado</a>
                 <a class='nav-item nav-link text-center {% if request.path|slice:":6" == "/blog/"%} active {% endif %}'
                     href='/blog/'>Blog</a>
@@ -92,7 +92,7 @@
     <div class="uppercontent" >
         <div class="row">
             <div class="col-lg-4 col-sm-12">
-                <img class='footer-logo' src="{% static 'core/img/logos-49.png'%}" alt="">
+                <img class='footer-logo' src="{% static 'core/img/logos-49a.png' %}" alt="">
             </div>
             <div class="col-lg-4 col-sm-12">
                 <div class="row">
