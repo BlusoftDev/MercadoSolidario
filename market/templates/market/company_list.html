@@ -69,7 +69,7 @@
 
     const companiesArr = [];
     {% for company in companies %}
-        const {{company.name}} = {
+        companiesArr[{{forloop.counter}}] = {
             id: {{company.id}},
             name: '{{company.name}}',
             phone: '{{company.cellphone}}',
@@ -84,18 +84,19 @@
             lat: {{company.lat}},
             lng: {{company.long}},
         }
-        companiesArr.push({{company.name}})
     {% endfor %}
 
     console.log(companiesArr)
 
     companiesDiv.innerHTML =' ';
 
-    var comListHTML =' ';
+    let comListHTML =' ';
 
-    var markersPoints = []
+    let markersPoints = []
 
     companiesArr.forEach((company) => {
+        console.log("-----------------------------");
+        console.log(company.name);
         markersPoints.push({
             lat:company.lat,
             lng: company.lng,
