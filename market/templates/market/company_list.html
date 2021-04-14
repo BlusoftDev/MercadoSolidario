@@ -86,6 +86,7 @@
         }
     {% endfor %}
 
+
     console.log(companiesArr)
 
     companiesDiv.innerHTML =' ';
@@ -95,8 +96,6 @@
     let markersPoints = []
 
     companiesArr.forEach((company) => {
-        console.log("-----------------------------");
-        console.log(company.name);
         markersPoints.push({
             lat:company.lat,
             lng: company.lng,
@@ -163,26 +162,31 @@
     `
     })
 
-
     companiesDiv.innerHTML = comListHTML;
-
 
     productInput.addEventListener('change', () =>{
         filterCompanies()
-    })
+    });
+
     cityInput.addEventListener('change', () =>{
         filterCompanies()
-    })
+    });
 
+    
+    if(productInput.options[productInput.selectedIndex].text === 'Selecciona ...' && (cityInput.options[cityInput.selectedIndex].text) === 'Selecciona ...'){
+        companiesDiv.style.display = 'none';
+    }
+    
     function filterCompanies(){
-        const productValue = (productInput.options[productInput.selectedIndex].text)
-        const cityValue = (cityInput.options[cityInput.selectedIndex].text)
-
-        
+        const productValue = (productInput.options[productInput.selectedIndex].text);
+        const cityValue = (cityInput.options[cityInput.selectedIndex].text);
 
         let filteredCompanies = companiesArr.filter(company => {
-            console.log(company.name,company.tags.includes(productValue))
-            if((company.tags.includes(productValue) || productValue=='Selecciona ...') && (company.city === cityValue || cityValue === 'Selecciona ...')) return company;
+            console.log(company.name,company.tags.includes(productValue), company.tags)
+            if((company.tags.includes(productValue)) || (company.city === cityValue)){
+                companiesDiv.style.display = 'block';
+                return company;
+            } 
         })
 
         comListHTML=''
