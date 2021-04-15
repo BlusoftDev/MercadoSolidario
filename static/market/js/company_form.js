@@ -62,10 +62,10 @@
         
 
         function initMap(myPlace) {
-            var ures = {lat: 29.427, lng: -110.393};
+            var hermosillo = {lat: 29.0892, lng: -110.961};
             // The map, centered 
             var map = new google.maps.Map(
-            document.getElementById('map'), {zoom: 6, center: ures});
+            document.getElementById('map'), {zoom: 6, center: hermosillo});
             if(myPlace){
                 var marker = new google.maps.Marker({position: myPlace, map: map, draggable: true,})
                 google.maps.event.addListener(marker, 'dragend', function (evt) {
@@ -98,7 +98,7 @@
 
             console.log(urlAddress)
 
-            const url='https://maps.googleapis.com/maps/api/geocode/json?address='+urlAddress+'&key=AIzaSyC9YTgCN-8vKj4OKnRzEWihyNiaXnBDGsk'
+            const url='https://maps.googleapis.com/maps/api/geocode/json?address='+urlAddress+'&key=AIzaSyDJxZBY34aGv47rZqh9EbujJM3TS5tmDdA'
                 console.log(url)
             fetch(url).then(response => response.json()).then(data => {
             console.log(data)
