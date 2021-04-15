@@ -1,0 +1,49 @@
+.bienvenido-text{
+    color: rgb(0, 34, 65);
+    font-size: 2.2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.subtitulo{
+    color: rgb(51,142,185);
+    font-size: 2em;
+    font-weight: 500;
+    text-align: center;
+}
+
+.texto-gris{
+    color: rgb(128,128,128);
+    font-size: 1.3em;
+    font-weight: 700;
+    text-align: center;
+}
+
+.bloque-texto{
+    background-color: rgb(51,142,185);
+    color: white;
+    font-size: 2em;
+    font-weight: 500;
+    text-align: center;
+    padding: 2% 0;
+}
+
+.bloque-texto p{
+    margin: 0;
+}
+
+.form-control{
+    height: 50px;
+    font-size: 1.3em;
+}
+
+.texto-azul{
+    color: rgb(51,142,185);
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+.checkbox-size{
+    min-height: 14px;
+    min-width: 16px;
+}
