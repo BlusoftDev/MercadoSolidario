@@ -112,7 +112,7 @@ class Company(models.Model):
     subactivity = models.ForeignKey(SubActivity, verbose_name='Actividad especifica' ,on_delete=models.CASCADE,  null=True, blank=True)
     tags = TaggableManager()
     payment_method = models.ManyToManyField(Payment, verbose_name='Metodo de pago')
-    image = models.ImageField(verbose_name='Imagen', upload_to='market', null=True, blank=True)
+    image = models.ImageField(verbose_name='Imagen', upload_to='./staticfiles/market/img/company', null=True, blank=True)
     let_me_know_more = models.BooleanField (verbose_name='Desea contarnos mas', null=True, blank=True)
     join = models.BooleanField (verbose_name='Quiere se parte', null=True, blank=True)
     lat = models.FloatField(verbose_name='Latitud', default=0.0)
@@ -120,12 +120,12 @@ class Company(models.Model):
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de registro')
     operation_start = models.DateTimeField( verbose_name='Inicio de operaciones')
     registerSAT = models.BooleanField (verbose_name='Registrado en el SAT', default=False)
-    product1 = models.ImageField(verbose_name='Producto 1', upload_to='market', null=True, blank=True)
-    product2 = models.ImageField(verbose_name='Producto 2', upload_to='market', null=True, blank=True)
-    product3 = models.ImageField(verbose_name='Producto 3', upload_to='market', null=True, blank=True)
-    product4 = models.ImageField(verbose_name='Producto 4', upload_to='market', null=True, blank=True)
-    product5 = models.ImageField(verbose_name='Producto 5', upload_to='market', null=True, blank=True)
-    product6 = models.ImageField(verbose_name='Producto 6', upload_to='market', null=True, blank=True)
+    product1 = models.ImageField(verbose_name='Producto 1', upload_to='./staticfiles/market/img/company', null=True, blank=True)
+    product2 = models.ImageField(verbose_name='Producto 2', upload_to='./staticfiles/market/img/company', null=True, blank=True)
+    product3 = models.ImageField(verbose_name='Producto 3', upload_to='./staticfiles/market/img/company', null=True, blank=True)
+    product4 = models.ImageField(verbose_name='Producto 4', upload_to='./staticfiles/market/img/company', null=True, blank=True)
+    product5 = models.ImageField(verbose_name='Producto 5', upload_to='./staticfiles/market/img/company', null=True, blank=True)
+    product6 = models.ImageField(verbose_name='Producto 6', upload_to='./staticfiles/market/img/company', null=True, blank=True)
 
 
     class Meta:
