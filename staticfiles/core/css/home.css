@@ -103,6 +103,11 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.mercado-text{
+  text-align: justify;
+}
+
 .mercado-solidario {
   background-color: rgb(230, 230, 250);
   
