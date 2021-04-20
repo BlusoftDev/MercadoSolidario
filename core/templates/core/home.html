@@ -205,12 +205,13 @@
     </div>
 </div>
 
-<!-- Mapa 
+<!-- Mapa  -->
 <div class="container-fluid">
     <h1 class="title">BUSCA LOS NEGOCIOS DE TU LOCALIDAD</h1>
     <br>
     <div id='map' style="height:500px;"></div>
-</div> Mapa -->
+</div> 
+<!-- Mapa -->
 
 <a href='/market/company_list'><button class='btn-largo'>QUIERO BUSCAR UN NEGOCIO</button></a>
 
@@ -286,14 +287,16 @@
 
 <script>
     function initMap() {
-            var ures = {lat: 29.427, lng: -110.393};
-            // The map, centered 
-            var map = new google.maps.Map(
-            document.getElementById('map'), {zoom: 7, center: ures});
-            
-            {% for company in companies %}
-            var {{company.name}} = new google.maps.Marker({position: {lat:{{company.lat}} , lng:{{company.long}} }, map: map, })
-            {% endfor %}
+        const ures = {lat: 29.427, lng: -110.393};
+        // The map, centered 
+        const map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 7, center: ures});
+        
+        // new google.maps.Marker({position: {lat:29.07107521057585 , lng:-110.98793148699144 }, map: map, })
+
+        {% for company in companies %}
+            new google.maps.Marker({position: {lat:{{company.lat}} , lng:{{company.long}} }, map: map, title: "{{company.name}}" })
+        {% endfor %}
             
         }
 </script>

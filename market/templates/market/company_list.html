@@ -21,9 +21,9 @@
 
 <div class="container-fluid">
     <div class="row">
-        <!---<div class="col-lg-6 col-sm-12">
+        <div class="col-lg-6 col-sm-12">
             <div id='map' style="height: 300px"></div>
-        </div>--->
+        </div>
         <div class="col-lg-6 col-sm-12">
             <div>
                 <h6>SELECCIONA UN PRODUCTO O SERVICIO</h6>
@@ -182,9 +182,6 @@
         const cityValue = (cityInput.options[cityInput.selectedIndex].text);
 
         let filteredCompanies = companiesArr.filter(company => {
-            console.log(company.name,company.tags.includes(productValue), company.tags)
-            console.log(company.city)
-            console.log(cityValue)
             if(((company.tags.includes(productValue)) && (company.city === cityValue)) || 
                 ((company.tags.includes(productValue)) && (cityValue === 'Selecciona ...')) || 
                 ((productValue === 'Selecciona ...') && (company.city === cityValue)) ){
@@ -289,8 +286,10 @@
     function initMap(myPlaces) {
         
         // The map, centered 
-        var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 8, center: map});  
+        const ures = {lat: 29.427, lng: -110.393};
+        const map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 7, center: ures});  
+        const bounds = new google.maps.LatLngBounds();
         if(myPlaces){
             const markers = []
             myPlaces.forEach(place =>{
@@ -299,8 +298,14 @@
                     position: {lat,lng},
                     map: map,
                     title
-                }))
-            })
+                }));
+                // map.setCenter(markers[0].getPosition());
+            });
+            markers.forEach(marker => {
+                bounds.extend(marker.position);
+            });
+             //Center map between markers
+            map.fitBounds(bounds);
         }else{
             markersPoints.forEach(place =>{
                 const markers = []
@@ -309,9 +314,15 @@
                     position: {lat,lng},
                     map: map,
                     title
-                }))
-            })
-        }      
+                }));
+            });
+        }
+
+        //Restore zoom level and don't let it go beyond 15
+        const listener = google.maps.event.addListenerOnce(map, "idle", function () {
+            const zoom = map.getZoom();
+            map.setZoom(zoom > 15 ? 15 : zoom);
+        });
     }
 
 </script>
