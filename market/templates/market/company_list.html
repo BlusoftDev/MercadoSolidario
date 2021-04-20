@@ -183,7 +183,11 @@
 
         let filteredCompanies = companiesArr.filter(company => {
             console.log(company.name,company.tags.includes(productValue), company.tags)
-            if((company.tags.includes(productValue)) || (company.city === cityValue)){
+            console.log(company.city)
+            console.log(cityValue)
+            if(((company.tags.includes(productValue)) && (company.city === cityValue)) || 
+                ((company.tags.includes(productValue)) && (cityValue === 'Selecciona ...')) || 
+                ((productValue === 'Selecciona ...') && (company.city === cityValue)) ){
                 companiesDiv.style.display = 'block';
                 return company;
             } 
