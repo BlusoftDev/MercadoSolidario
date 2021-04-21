@@ -1,0 +1,24 @@
+{% extends  'core/base.html' %}
+
+{% load static %}
+
+{% block links %}
+<link href="{% static 'core/css/error.css' %}?" rel="stylesheet">
+{% endblock links %}
+
+{% block title %}Error 500{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="error">
+        <p class="error-heading">ERROR 500</p>
+        <br>
+        <p>Error Interno del Servidor</p>
+
+    </div>
+
+</div>
+
+{% endblock %}

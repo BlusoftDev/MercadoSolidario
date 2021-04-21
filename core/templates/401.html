@@ -1,0 +1,24 @@
+{% extends  'core/base.html' %}
+
+{% load static %}
+
+{% block links %}
+<link href="{% static 'core/css/error.css' %}?" rel="stylesheet">
+{% endblock links %}
+
+{% block title %}Error 401{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="error">
+        <p class="error-heading">ERROR 401</p>
+        <br>
+        <p>Sin Autorización</p>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends  'core/base.html' %}
+
+{% load static %}
+
+{% block links %}
+<link href="{% static 'core/css/error.css' %}?" rel="stylesheet">
+{% endblock links %}
+
+{% block title %}Error 404{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="error">
+        <p class="error-heading">ERROR 404</p>
+        <br>
+        <p>Página no encontrada</p>
+
+    </div>
+
+</div>
+
+{% endblock %}

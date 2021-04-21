@@ -1,0 +1,12 @@
+.error{
+    text-align: center;
+    font-size: 2rem;
+    color: #001C34;
+    font-weight: bold;
+}
+
+.error-heading{
+    font-size: 3rem;
+    color: #86CCE6;
+    font-weight: bolder;
+}

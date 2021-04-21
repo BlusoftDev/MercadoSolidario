@@ -1,0 +1,24 @@
+{% extends  'core/base.html' %}
+
+{% load static %}
+
+{% block links %}
+<link href="{% static 'core/css/error.css' %}?" rel="stylesheet">
+{% endblock links %}
+
+{% block title %}Error 502{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="error">
+        <p class="error-heading">ERROR 502</p>
+        <br>
+        <p>Servicio Sobrecargado Temporalmente</p>
+
+    </div>
+
+</div>
+
+{% endblock %}

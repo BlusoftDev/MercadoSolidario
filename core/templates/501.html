@@ -1,0 +1,24 @@
+{% extends  'core/base.html' %}
+
+{% load static %}
+
+{% block links %}
+<link href="{% static 'core/css/error.css' %}?" rel="stylesheet">
+{% endblock links %}
+
+{% block title %}Error 501{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="error">
+        <p class="error-heading">ERROR 501</p>
+        <br>
+        <p>Sin Implementación</p>
+
+    </div>
+
+</div>
+
+{% endblock %}
