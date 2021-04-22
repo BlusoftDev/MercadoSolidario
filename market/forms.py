@@ -7,7 +7,7 @@ class CompanyForm(forms.ModelForm):
     class Meta:
         model = Company
         fields = ['name', 'city',  'postal_code', 'colony','street', 'ext_number', 'int_number','to_home', 'delivery_options',
-        'platform', 'phone', 'cellphone', 'email', 'activity', 'subactivity', 'tags', 'payment_method', 'image','let_me_know_more','join', 'lat', 'long','operation_start','registerSAT',
+        'platform', 'phone', 'cellphone', 'email', 'subactivity', 'tags', 'payment_method', 'image','let_me_know_more','join', 'lat', 'long','operation_start','registerSAT',
         'product1', 'product2', 'product3', 'product4', 'product5', 'product6']
         widgets = {
           
@@ -39,7 +39,6 @@ class CompanyForm(forms.ModelForm):
                        'type':"date"}
                        
             ),
-            'activity' : forms.Select(attrs={'class':'form-control'}),
             'subactivity' : forms.Select(attrs={'class':'form-control'}),
         }
 
@@ -48,7 +47,7 @@ class CompanySearchForm(forms.ModelForm):
 
     class Meta:
         model = Company
-        fields = ['city', 'activity', ]
+        fields = ['city', 'subactivity', ]
 
 
 

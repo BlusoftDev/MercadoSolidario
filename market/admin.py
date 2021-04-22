@@ -29,12 +29,17 @@ class SubActivityAdmin(admin.ModelAdmin):
 
 class CompanyAdmin(admin.ModelAdmin):
         readonly_fields = ('created',)
-        list_display = ('name', 'city', 'colony', 'activity')
+        list_display = ('name', 'city', 'colony', 'get_activity')
         ordering = ('name', 'city')
-        search_fields = ('name','city', 'colony', 'activity')
+        search_fields = ('name','city', 'colony', 'get_activity')
         date_hierarchy = 'created'
-        list_filter = ('city','activity')
+        list_filter = ('city','subactivity__activity')
         change_list_template = 'admin/companies/companies_change_list.html'
+
+        def get_activity(self, obj):
+                return obj.subactivity.activity
+        get_activity.short_description = 'Actividad'
+        get_activity.admin_order_field = 'subactivity__activity'
         
 
         

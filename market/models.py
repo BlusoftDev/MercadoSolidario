@@ -109,8 +109,7 @@ class Company(models.Model):
     phone= models.CharField(max_length=100, verbose_name='Telefono', null=True, blank=True)
     cellphone= models.CharField(max_length=100, verbose_name='Telefono Móvil')
     email= models.CharField(max_length=100, verbose_name='Correo electrónico', null=True, blank=True)
-    activity = models.ForeignKey(Activity, verbose_name='Actividad' ,on_delete=models.CASCADE,   null=True, blank=True)
-    subactivity = models.ForeignKey(SubActivity, verbose_name='Actividad especifica' ,on_delete=models.CASCADE,  null=True, blank=True)
+    subactivity = models.ForeignKey(SubActivity, verbose_name='Actividad especifica' ,on_delete=models.CASCADE)
     tags = TaggableManager()
     payment_method = models.ManyToManyField(Payment, verbose_name='Metodo de pago')
     image = models.ImageField(
