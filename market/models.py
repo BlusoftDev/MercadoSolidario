@@ -47,7 +47,7 @@ class SubActivity(models.Model):
     class Meta:
         verbose_name = 'Subactividad'
         verbose_name_plural = 'Subactividades'
-        ordering = ['-created']
+        ordering = ['name']
 
     def __str__(self):
         return self.name
@@ -61,7 +61,7 @@ class City(models.Model):
     class Meta:
         verbose_name = 'Municipio'
         verbose_name_plural = 'Municipios'
-        ordering = ['-created']
+        ordering = ['name']
 
     def __str__(self):
         return self.name
