@@ -104,6 +104,8 @@
   justify-content: center;
 }
 
+/* Mercado Solidario */
+
 .mercado-text{
   text-align: justify;
 }
@@ -120,9 +122,26 @@
   justify-content: center;
   align-content: center;
 }
+
+.imagen-mercado{
+  display: block;
+  margin: auto;
+  width: 64%;
+  height: auto;
+}
+
+@media screen and (max-width: 767px) {
+  /* For mobile phones: */
+  [class*="imagen-mercado"] {
+    width: 100%;
+  }
+}
+
 .to-mercado {
   background-color: rgb(0, 135, 185);
 }
+
+/* Mercado Solidario */
 
 .sonora-map {
   display: flex;
