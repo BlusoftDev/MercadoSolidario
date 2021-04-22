@@ -30,8 +30,8 @@
                 <h6>SELECCIONA UN PRODUCTO O SERVICIO</h6>
                 <select id='productInput' class="form-control">
                     <option>Selecciona ...</option>
-                    {% for tag in tags %}
-                    <option>{{tag.name}}</option>
+                    {% for sub in subactivities %}
+                    <option>{{sub.name}}</option>
                     {% endfor %}
                 </select>
             </div>

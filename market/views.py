@@ -3,7 +3,7 @@ from .forms import CompanyForm, CompanySearchForm
 from django.views.generic.edit import CreateView
 from django.views.generic.detail import DetailView
 from django.urls import reverse
-from .models import Company, City
+from .models import Company, City, SubActivity
 from taggit.models import Tag
 import csv
 from django.http import HttpResponse
@@ -18,7 +18,8 @@ def company_list(request):
     companies = Company.objects.all()
     tags = Tag.objects.all()
     cities = City.objects.all()
-    return render(request, "market/company_list.html", {'companies':companies, 'tags':tags, 'cities':cities})
+    subactivities = SubActivity.objects.all()
+    return render(request, "market/company_list.html", {'companies':companies, 'tags':tags, 'cities':cities, 'subactivities':subactivities})
 
 
 
