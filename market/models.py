@@ -115,11 +115,11 @@ class Company(models.Model):
     payment_method = models.ManyToManyField(Payment, verbose_name='Metodo de pago')
     image = models.ImageField(
         verbose_name='Imagen', 
-        upload_to='./staticfiles/market/img/company', 
+        upload_to='company', 
         null=True, 
         blank=True,
         validators=[validate_file_size], 
-        default='./staticfiles/core/img/ic-registra.png',
+        default='company/default/noimage.jpg',
     )
     let_me_know_more = models.BooleanField (verbose_name='Desea contarnos mas', null=True, blank=True)
     join = models.BooleanField (verbose_name='Quiere se parte', null=True, blank=True)
@@ -130,51 +130,51 @@ class Company(models.Model):
     registerSAT = models.BooleanField (verbose_name='Registrado en el SAT', default=False)
     product1 = models.ImageField(
         verbose_name='Producto 1', 
-        upload_to='./staticfiles/market/img/company', 
+        upload_to='company', 
         null=True, 
         blank=True,
         validators=[validate_file_size], 
-        default='./staticfiles/core/img/ic-registra.png',
+        default='company/default/noimage.jpg',
     )
     product2 = models.ImageField(
         verbose_name='Producto 2', 
-        upload_to='./staticfiles/market/img/company', 
+        upload_to='company', 
         null=True, 
         blank=True,
         validators=[validate_file_size], 
-        default='./staticfiles/core/img/ic-registra.png',
+        default='company/default/noimage.jpg',
     )
     product3 = models.ImageField(
         verbose_name='Producto 3', 
-        upload_to='./staticfiles/market/img/company', 
+        upload_to='company', 
         null=True, 
         blank=True,
         validators=[validate_file_size], 
-        default='./staticfiles/core/img/ic-registra.png',
+        default='company/default/noimage.jpg',
     )
     product4 = models.ImageField(
         verbose_name='Producto 4', 
-        upload_to='./staticfiles/market/img/company', 
+        upload_to='company', 
         null=True, 
         blank=True,
         validators=[validate_file_size], 
-        default='./staticfiles/core/img/ic-registra.png',
+        default='company/default/noimage.jpg',
     )
     product5 = models.ImageField(
         verbose_name='Producto 5', 
-        upload_to='./staticfiles/market/img/company', 
+        upload_to='company', 
         null=True, 
         blank=True,
         validators=[validate_file_size], 
-        default='./staticfiles/core/img/ic-registra.png',
+        default='company/default/noimage.jpg',
     )
     product6 = models.ImageField(
         verbose_name='Producto 6', 
-        upload_to='./staticfiles/market/img/company', 
+        upload_to='company', 
         null=True, 
         blank=True,
         validators=[validate_file_size], 
-        default='./staticfiles/core/img/ic-registra.png',
+        default='company/default/noimage.jpg',
     )
 
 
