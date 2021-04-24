@@ -11,7 +11,7 @@ class CompanyForm(forms.ModelForm):
         'product1', 'product2', 'product3', 'product4', 'product5', 'product6']
         widgets = {
           
-            'colony': forms.TextInput(attrs={'id':'colony' ,'class':'form-control','placeholder':'Colonia de tu local '}),
+            'colony': forms.TextInput(attrs={'id':'colony' ,'class':'form-control','placeholder':'Colonia de tu local*'}),
             'postal_code': forms.TextInput(attrs={'id':'cp','class':'form-control'}),
             'city': forms.Select(attrs={'id':'city', 'class':'form-control'}),
             'postal_code': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Código Postal*'}),
@@ -24,7 +24,7 @@ class CompanyForm(forms.ModelForm):
             'phone' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'Número de télefono fijo de tu negocio'}),
             'cellphone' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'Número de télefono móvil de tu negocio*'}),
             'email' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'Correo Electrónico de tu negocio'}),
-            'name' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'Nombre del negocio'}),
+            'name' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'Nombre del negocio*'}),
             'tags' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'Escribe 6 palabras clave que describan los productos o servicios que ofreces'}),
             'payment_method' : forms.CheckboxSelectMultiple(attrs={}),
             'let_me_know_more' : forms.CheckboxInput(attrs={'type': 'checkbox', 'class':'form-check-input checkbox-size'}),

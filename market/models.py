@@ -1,7 +1,7 @@
 from django.db import models
 from taggit.managers import TaggableManager
 from django.utils import timezone
-from core.validators import validate_file_size
+from core.formatChecker import ContentTypeRestrictedFileField
 
 
 DELIVERY = (
@@ -112,12 +112,13 @@ class Company(models.Model):
     subactivity = models.ForeignKey(SubActivity, verbose_name='Actividad especifica' ,on_delete=models.CASCADE)
     tags = TaggableManager()
     payment_method = models.ManyToManyField(Payment, verbose_name='Metodo de pago')
-    image = models.ImageField(
+    image = ContentTypeRestrictedFileField(
         verbose_name='Imagen', 
         upload_to='company', 
         null=True, 
         blank=True,
-        validators=[validate_file_size], 
+        max_upload_size=1048576,
+        content_types=['image/jpg', 'image/jpeg', 'image/png', 'image/jiff'],
         default='company/default/noimage.jpg',
     )
     let_me_know_more = models.BooleanField (verbose_name='Desea contarnos mas', null=True, blank=True)
@@ -127,52 +128,58 @@ class Company(models.Model):
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de registro')
     operation_start = models.DateTimeField( verbose_name='Inicio de operaciones')
     registerSAT = models.BooleanField (verbose_name='Registrado en el SAT', default=False)
-    product1 = models.ImageField(
+    product1 = ContentTypeRestrictedFileField(
         verbose_name='Producto 1', 
         upload_to='company', 
         null=True, 
-        blank=True,
-        validators=[validate_file_size], 
+        blank=True,        
+        max_upload_size=1048576,
+        content_types=['image/jpg', 'image/jpeg', 'image/png', 'image/jiff'],
         default='company/default/noimage.jpg',
     )
-    product2 = models.ImageField(
+    product2 = ContentTypeRestrictedFileField(
         verbose_name='Producto 2', 
         upload_to='company', 
         null=True, 
-        blank=True,
-        validators=[validate_file_size], 
+        blank=True,        
+        max_upload_size=1048576,
+        content_types=['image/jpg', 'image/jpeg', 'image/png', 'image/jiff'],
         default='company/default/noimage.jpg',
     )
-    product3 = models.ImageField(
+    product3 = ContentTypeRestrictedFileField(
         verbose_name='Producto 3', 
         upload_to='company', 
         null=True, 
-        blank=True,
-        validators=[validate_file_size], 
+        blank=True,        
+        max_upload_size=1048576,
+        content_types=['image/jpg', 'image/jpeg', 'image/png', 'image/jiff'],
         default='company/default/noimage.jpg',
     )
-    product4 = models.ImageField(
+    product4 = ContentTypeRestrictedFileField(
         verbose_name='Producto 4', 
         upload_to='company', 
         null=True, 
-        blank=True,
-        validators=[validate_file_size], 
+        blank=True,        
+        max_upload_size=1048576,
+        content_types=['image/jpg', 'image/jpeg', 'image/png', 'image/jiff'], 
         default='company/default/noimage.jpg',
     )
-    product5 = models.ImageField(
+    product5 = ContentTypeRestrictedFileField(
         verbose_name='Producto 5', 
         upload_to='company', 
         null=True, 
-        blank=True,
-        validators=[validate_file_size], 
+        blank=True,        
+        max_upload_size=1048576,
+        content_types=['image/jpg', 'image/jpeg', 'image/png', 'image/jiff'], 
         default='company/default/noimage.jpg',
     )
-    product6 = models.ImageField(
+    product6 = ContentTypeRestrictedFileField(
         verbose_name='Producto 6', 
         upload_to='company', 
         null=True, 
-        blank=True,
-        validators=[validate_file_size], 
+        blank=True,        
+        max_upload_size=1048576,
+        content_types=['image/jpg', 'image/jpeg', 'image/png', 'image/jiff'],
         default='company/default/noimage.jpg',
     )
 

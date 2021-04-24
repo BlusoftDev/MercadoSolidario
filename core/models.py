@@ -1,38 +1,42 @@
 from django.db import models
-from .validators import validate_file_size
+from .formatChecker import ContentTypeRestrictedFileField
 
 # Create your models here.
 class Banner(models.Model):
-    sld1 = models.ImageField(
+    sld1 = ContentTypeRestrictedFileField(
         verbose_name='Slide 1', 
         upload_to='banner', 
         null=True, 
         blank=True, 
-        validators=[validate_file_size], 
+        max_upload_size=1048576,
+        content_types=['image/jpg', 'image/jpeg', 'image/png', 'image/jiff'],
         default='banner/default/sld-1min.png',
     )
-    sld2 = models.ImageField(
+    sld2 = ContentTypeRestrictedFileField(
         verbose_name='Slide 2', 
         upload_to='banner', 
         null=True, 
         blank=True, 
-        validators=[validate_file_size], 
+        max_upload_size=1048576,
+        content_types=['image/jpg', 'image/jpeg', 'image/png', 'image/jiff'], 
         default='banner/default/sld2min.png',
     )
-    sld3 = models.ImageField(
+    sld3 = ContentTypeRestrictedFileField(
         verbose_name='Slide 3', 
         upload_to='banner', 
         null=True, 
         blank=True, 
-        validators=[validate_file_size], 
+        max_upload_size=1048576,
+        content_types=['image/jpg', 'image/jpeg', 'image/png', 'image/jiff'], 
         default='banner/default/sld1min.png',
     )
-    sld4 = models.ImageField(
+    sld4 = ContentTypeRestrictedFileField(
         verbose_name='Slide 4', 
         upload_to='banner', 
         null=True, 
         blank=True, 
-        validators=[validate_file_size], 
+        max_upload_size=1048576,
+        content_types=['image/jpg', 'image/jpeg', 'image/png', 'image/jiff'],
         default='banner/default/sld3.png',
     )
 

@@ -24,26 +24,33 @@
     </div>
     <p class="texto-gris text-end">Los campos marcados con * son obligatorios</p>
     <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %} 
+        {% csrf_token %}
+
+        {{form.errors.city}}
         {{form.city}}
         <br>
         <div class="row">
             <div class="col-lg-6 col-sm-12">
+                {{form.errors.postal_code}}
                 {{form.postal_code}}
             </div>
             <div class="col-lg-6 col-sm-12">
+                {{form.errors.colony}}
                 {{form.colony}}
             </div>
         </div>
         <br>
+        {{form.errors.street}}
         {{form.street}}
         <p>Si no tienes una ubicación física, ¡Sólo registra tu colonia!</p>
         <br>
         <div class="row">
             <div class="col-lg-6 col-sm-12">
+                {{form.errors.ext_number}}
                 {{form.ext_number}}
             </div>
             <div class="col-lg-6 col-sm-12">
+                {{form.errors.int_number}}
                 {{form.int_number}}
             </div>
         </div>
@@ -59,6 +66,7 @@
             <div class="col-lg-6 col-sm-12 d-flex align-items-center justify-content-center">
                 <div class="mx-5 my-5">
                     <div class="d-flex justify-content-center">
+                        {{form.errors.to_home}}
                         {{form.to_home}}
                         <h5 class="ml-2"><strong>Puedo entregar mi producto o servicio a domicilio</strong></h5>
                     </div>
@@ -66,39 +74,52 @@
                     <br>            
                     <br>            
                     <h5 class="text-center"><strong>Selecciona la zona en la que te gustaría entregar tu producto o servicio</strong></h5>
+                    {{form.errors.delivery_options}}
                     {{form.delivery_options}}
                 </div>
             </div>
         </div>
         <br>
         <p class="texto-azul">Si ya estas inscrito en alguna plataforma, captura la liga o URL</p>
+        {{form.errors.platform}}
         {{form.platform}}
     
         <br>
         <p class="texto-azul">Ingresa los datos de tu negocio. Esto ayudará a futuros clientes a contactarte</p>
+        {{form.errors.name}}
         {{form.name}}
         <br>
+        {{form.errors.cellphone}}
         {{form.cellphone}}
         <br>
+        {{form.errors.phone}}
         {{form.phone}}
         <br>
+        {{form.errors.email}}
         {{form.email}}
         <br>
         <p class="texto-azul">Inicio de operaciones</p>
+        {{form.errors.operation_start}}
         {{form.operation_start}}
         <br>
         <div class="bloque-texto">
             <p>DILES A TODOS QUE PRODUCTOS O SERVICIOS VENDES</p>
         </div>
         <br>
-        {{form.activity}}
-        <br>
+        {{form.errors.subactivity}}
         {{form.subactivity}}
         <br>
+        {{form.errors.tags}}
         {{form.tags}}
         <br>
         <p class="texto-azul">Puedes ingresar un máximo de 6 imágenes de tus productos para mostrarlos</p>
         <br>
+        {{form.errors.product1}}
+        {{form.errors.product2}}
+        {{form.errors.product3}}
+        {{form.errors.product4}}
+        {{form.errors.product5}}
+        {{form.errors.product6}}
         <div class="row">
             <div class="col-lg-4 col-sm-12">
                 {{form.product1}}
@@ -124,24 +145,29 @@
             <p>FORMAS DE PAGO</p>
         </div>
         <br>
+        {{form.errors.payment_method}}
         <p class="texto-azul">Si agregas la información de tus métodos de pago, será más fácil comprarte por adelantado</p>
         {{form.payment_method}}
         <br>
+        {{form.errors.image}}
         <p class="texto-azul">Sube la foto que más te guste de tu negocio</p>
         {{form.image}}
         <br>
         <br>
         <div class="d-flex align-items-center">
+            {{form.errors.let_me_know_more}}
             {{form.let_me_know_more}}
             <p class="texto-azul ml-3 mb-0">Deseo conocer acerca de convocatorias o apoyos gubernamentales</p>
         </div>
         <br>
         <div class="d-flex align-items-center">
+            {{form.errors.join}}
             {{form.join}}
             <p class="texto-azul ml-3 mb-0">Deseo participar en el mercado de consumo solidario</p>
         </div>
         <br>
         <div class="d-flex align-items-center">
+            {{form.errors.registerSAT}}
             {{form.registerSAT}}
             <p class="texto-azul ml-3 mb-0">Registrado ante el SAT</p>
         </div>
