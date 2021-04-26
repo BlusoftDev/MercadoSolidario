@@ -12,3 +12,8 @@ class BannerModelAdmin(admin.ModelAdmin):
         if retVal and Banner.objects.exists():
             retVal = False
         return retVal
+
+    class Media:
+        js = (
+            'core/js/admin.js',
+        )

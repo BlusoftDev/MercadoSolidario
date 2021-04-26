@@ -40,6 +40,11 @@ class CompanyAdmin(admin.ModelAdmin):
                 return obj.subactivity.activity
         get_activity.short_description = 'Actividad'
         get_activity.admin_order_field = 'subactivity__activity'
+
+        class Media:
+                js = (
+                'core/js/admin.js',
+                )
         
 
         

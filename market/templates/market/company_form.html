@@ -23,7 +23,7 @@
         <p>REGISTRARSE ES MUY SIMPLE</p>
     </div>
     <p class="texto-gris text-end">Los campos marcados con * son obligatorios</p>
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form id="id_company_form" action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
         {{form.errors.city}}
@@ -150,6 +150,7 @@
         {{form.payment_method}}
         <br>
         {{form.errors.image}}
+        <p class="errorliste">esto es html</p>
         <p class="texto-azul">Sube la foto que más te guste de tu negocio</p>
         {{form.image}}
         <br>
@@ -174,6 +175,7 @@
         {{form.lat}}
         {{form.long}}
         <div class="d-flex justify-content-center">
+            <!-- <button type='button' class='button btn-azul-fuerte' id='submitBtn' onclick='imagesAlert()'><p>Registra tu negocio</p></button> -->
             <button type='submit' class='button btn-azul-fuerte' id='submitBtn'><p>Registra tu negocio</p></button>
         </div>
     </form>
@@ -185,10 +187,12 @@
 
 {% load static %}
 
+{% endblock %}
+
+{% block scripts %}
 <script src="{% static 'market/js/company_form.js' %}?"></script>
 <script defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9YTgCN-8vKj4OKnRzEWihyNiaXnBDGsk&callback=initMap">
 </script>
-
-    
- {% endblock %}
+        
+{% endblock scripts %}
